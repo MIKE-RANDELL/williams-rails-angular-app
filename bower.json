@@ -1,11 +1,13 @@
 {
   "vendor": {
-    "name": "bower-rails generated vendor assets",
+    "name": "bower-rails-generated-vendor-assets",
     "dependencies": {
       "angular":"v1.5.8",
+      "angular-devise": "latest",
       "angular-ui-router": "latest",
       "moment": "latest",
-      "bootstrap": "latest"
+      "bootstrap": "latest",
+      "bootstrap-sass" : "latest"
     }
   }
 }
