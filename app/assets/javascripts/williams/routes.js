@@ -12,7 +12,7 @@
             controller: 'HomeController as vm'
           })
 
-          $urlRouterProvider.otherwise('/home')
+          $urlRouterProvider.otherwise('/')
       }])
 
 }())
