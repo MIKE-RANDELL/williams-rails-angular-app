@@ -8,3 +8,9 @@
  floratam = Product.create(name: 'Floratam',
                            description: 'is a warm-season lawn grass that is popular for cultivation in tropical and subtropical regions. It is a medium- to high-maintenance grass that forms a thick, carpetlike sod, crowding out most weeds and other grasses.',
                            price: 140)
+
+review1 = Review.create(name: 'MIKERANDELL',
+                        review: 'this is the first review, success')
+
+review2 = Review.create(name: 'LYNETTERANDELL',
+                        review: 'this is the second review, success')

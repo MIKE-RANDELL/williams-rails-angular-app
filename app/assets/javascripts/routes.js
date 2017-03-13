@@ -8,9 +8,14 @@
         $stateProvider
           .state('home', {
             url: '/',
-            templateUrl: 'williams/home/home.html',
+            templateUrl: 'home/home.html',
             controller: 'HomeController as vm'
           })
+          //.state('home.reviews', {
+          //  url: '/reviews',
+          //  templateUrl: 'reviews/reviews.html',
+          //  controller: 'ReviewController as vm'
+          //})
 
           $urlRouterProvider.otherwise('/')
       }])
