@@ -1,11 +1,13 @@
-<form name="review" ng-submit="ctrl.createReview()">
-    <input
-        name="user"
-        required="required"
-        ng-model="ctrl.user" />
-    <input
-        name="review"
-        required="required"
-        ng-model="ctrl.review" />
-    <input type="submit" value="submit review">
+<form name="review">
+	<div class="form-group">
+		<label class="control-label " for="review">Write a Review</label>
+		<textarea required="required" ng-model="ctrl.review" class="form-control" id="message_id" name="review" rows="3"></textarea>
+	</div>
+
+  <div class="form-group col-xs-4"> <!-- Email field !-->
+		<label for="name" class="control-label">Name:</label>
+		<input required="required" ng-model="ctrl.user" class="form-control input-sm" name="user" placeholder="Please enter your name">
+    <br>
+    <input ng-click="ctrl.createReview()" class="btn btn-primary" name="submit" type="submit"></input>
+	</div>
 </form>
