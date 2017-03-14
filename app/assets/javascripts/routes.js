@@ -4,18 +4,23 @@
     angular
       .module('williams')
       .config(['$stateProvider', '$urlRouterProvider',
-      function($stateProvider, $urlRouterProvider) {
+      function($stateProvider, $urlRouterProvider, ReviewsService) {
         $stateProvider
           .state('home', {
             url: '/',
             templateUrl: 'home/home.html',
             controller: 'HomeController as vm'
           })
-          //.state('home.reviews', {
-          //  url: '/reviews',
-          //  templateUrl: 'reviews/reviews.html',
-          //  controller: 'ReviewController as vm'
-          //})
+          .state('home.reviews', {
+            url: 'reviews',
+            templateUrl: 'reviews/reviews.html',
+            controller: 'ReviewsController as vm',
+            resolve: {
+              reviewsSet: function(ReviewsService){
+                return ReviewsService.getReviews().then(function(response){return response})
+              }
+            }
+          })
 
           $urlRouterProvider.otherwise('/')
       }])
