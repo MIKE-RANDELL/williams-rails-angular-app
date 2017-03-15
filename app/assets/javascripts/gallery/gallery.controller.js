@@ -2,7 +2,7 @@
 
   'use strict'
 
-  function GalleryController(GalleryService, gallerySet){
+  function GalleryController($state, GalleryService, gallerySet){
     this.galleryArr = gallerySet
     var ctrl = this;
 
@@ -15,12 +15,12 @@
     //}
 
     ctrl.submit = function() {
-      GalleryService.createPhoto(ctrl.picture).then(function(res){console.log(res)})
+      GalleryService.createPhoto(ctrl.picture).then(function(res){$state.reload()})
     }
   }
 
   angular
     .module('williams')
-    .controller('GalleryController', ['GalleryService', 'gallerySet', GalleryController])
+    .controller('GalleryController', ['$state', 'GalleryService', 'gallerySet', GalleryController])
 
 }())

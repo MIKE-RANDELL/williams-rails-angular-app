@@ -10,8 +10,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    #binding.pry
-    @picture = Picture.create(title: 'a title', photo: decode_base64)
+    @picture = Picture.create(title: params[:title], photo: decode_base64)
     render json: @picture
   end
 
@@ -46,6 +45,6 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:pictures).permit(:description, :picture)
+    params.require(:image).permit(:title, :picture)
   end
 end

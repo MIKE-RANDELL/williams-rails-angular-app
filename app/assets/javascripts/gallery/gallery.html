@@ -10,5 +10,6 @@
 <!--submit picture feature will be setup with devise/pundit ADMIN ONLY-->
 <form ng-submit="vm.submit()">
   <input type="file" ng-model="vm.picture.image" accept="image/*" base-sixty-four-input>
+  <input ng-model="vm.picture.title">
   <input type="submit" value="submit">
 </form>
