@@ -1,18 +1,13 @@
 (function(){
 
-  'use strict'
+  'use-strict'
 
-  function ReviewsController(reviewsSet, $scope, $state){
-
+  function ReviewsController(reviewsSet){
     var ctrl = this;
     ctrl.reviews = reviewsSet;
-
-    $scope.reload = function(){
-      $state.reload();
-    };
   }
 
   angular
     .module('williams')
-    .controller('ReviewsController', ['reviewsSet', '$scope', '$state', ReviewsController])
+    .controller('ReviewsController', ['reviewsSet', ReviewsController])
 }())

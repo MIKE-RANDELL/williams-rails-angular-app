@@ -21,6 +21,16 @@
               }
             }
           })
+          .state('home.gallery', {
+            url: 'gallery',
+            templateUrl: 'gallery/gallery.html',
+            controller: 'GalleryController as vm',
+            resolve: {
+              gallerySet: function(GalleryService){
+                return GalleryService.getPhotos().then(function(response){return response})
+              }
+            }
+          })
 
           $urlRouterProvider.otherwise('/')
       }])

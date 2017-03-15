@@ -1,0 +1,19 @@
+<div ng-repeat="pictureObjs in ctrl.organizedPictureObjArr">
+  <div class="row">
+    <div class="col-md-6" ng-if="pictureObjs[0]">
+      <div class="well">
+        <img class="thumbnail img-responsive" alt="Bootstrap template" ng-if="pictureObjs[0]"
+             src="{{pictureObjs[0].photo}}" />
+        <div class="text-center">{{pictureObjs[0].title}}</div>
+      </div>
+    </div>
+    <div class="col-md-6" ng-if="pictureObjs[1]">
+      <div class="well">
+        <img class="thumbnail img-responsive" alt="Bootstrap template" ng-if="pictureObjs[1]"
+             src="{{pictureObjs[1].photo}}" />
+        <div class="text-center">{{pictureObjs[1].title}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--still hitting GET 404 error for some reason but gallery is functioning-->

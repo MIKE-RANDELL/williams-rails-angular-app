@@ -2,6 +2,6 @@
     'use-strict';
 
     angular
-      .module('williams', ['ui.router', 'templates', 'Devise'])
+      .module('williams', ['ui.router', 'templates', 'Devise', 'naif.base64'])
 
 }())

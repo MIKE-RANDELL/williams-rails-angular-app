@@ -6,8 +6,7 @@
     return {
       templateUrl: 'directives/create-review/create-review.html',
       controller: CreateReviewController,
-      controllerAs: 'ctrl',
-      scope: {}
+      controllerAs: 'ctrl'
     }
   }
 
@@ -20,7 +19,7 @@
     this.createReview = function createReview(){
       ReviewsService.createReview({"name": ctrl.user, "review": ctrl.review})
                     .then(function(){ $state.reload() }) //had to put $state.reload() in callback
-                                                        //so promise is completed and parent (routing resolve) is updated 
+                                                        //so promise is completed and parent (routing resolve) is updated
       //I had $state.reload() here...and was ran before promise was resolved
     }
   }

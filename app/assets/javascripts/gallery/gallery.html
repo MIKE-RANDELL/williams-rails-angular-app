@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h1>Some of our recent projects</h1>
+        </div>
+        <gallery id="vm.galleryArr"></gallery>
+    </div>
+</div>
+
+<!--submit picture feature will be setup with devise/pundit ADMIN ONLY-->
+<form ng-submit="vm.submit()">
+  <input type="file" ng-model="vm.picture.image" accept="image/*" base-sixty-four-input>
+  <input type="submit" value="submit">
+</form>
