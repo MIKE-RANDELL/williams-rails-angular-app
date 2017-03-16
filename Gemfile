@@ -9,6 +9,8 @@ gem 'bower-rails'
 
 gem 'angular-rails-templates'
 
+gem 'ng-rails-csrf'
+
 gem 'responders'
 
 gem 'active_model_serializers'

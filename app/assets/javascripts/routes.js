@@ -31,6 +31,24 @@
               }
             }
           })
+          .state('home.products', {
+            url: 'products',
+            controller: 'ProductsController as vm',
+            //templateUrl: 'products/products.html',
+            resolve: {
+              productsSet: function(){
+
+              }
+            },
+            views: {
+              '': {
+                templateUrl: 'products/products.html',
+              },
+              'product-details@home.products': {
+                templateUrl: 'products/product_details.html'
+              }
+            }
+          })
 
           $urlRouterProvider.otherwise('/')
       }])

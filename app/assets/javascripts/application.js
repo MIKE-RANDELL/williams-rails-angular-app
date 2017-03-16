@@ -1,5 +1,6 @@
 //= require jquery
 //= require angular
+//= require ng-rails-csrf
 //= require angular-ui-router
 //= require angular-devise
 //= require angular-rails-templates

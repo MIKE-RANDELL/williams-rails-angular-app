@@ -1,6 +1,6 @@
 require 'pry'
 class ReviewsController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => [:create]
+  #skip_before_filter :verify_authenticity_token, :only => [:create]
   def index
     @reviews = Review.all
     render json: @reviews
