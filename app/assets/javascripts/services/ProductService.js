@@ -5,6 +5,7 @@
   function ProductService($http){
     this.makeProduct = makeProduct
     this.getProducts = getProducts
+    this.makeSubProduct = makeSubProduct
     this.getSubProducts = getSubProducts
 
     function makeProduct(product){
@@ -15,6 +16,18 @@
           'Content-Type': 'application/json'
         },
         data: {product}
+      }
+      return $http(req).then(function(res){return res.data})
+    }
+
+    function makeSubProduct(sub_product){
+      var req = {
+        method: 'POST',
+        url: '/sub_products',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {sub_product}
       }
       return $http(req).then(function(res){return res.data})
     }

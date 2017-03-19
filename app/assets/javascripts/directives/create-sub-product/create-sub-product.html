@@ -1,0 +1,18 @@
+<br><br><br>
+<form name="" ng-submit="ctrl.createSubProduct()">
+  <div class="form-group half">
+	  <label for="name" class="control-label">Name:</label>
+	  <input required="required" ng-model="ctrl.name" class="form-control" name="name" placeholder="Sub Product name">
+  </div>
+  <div class="form-group">
+	  <label class="control-label" for="description">Description</label>
+		<textarea required="required" ng-model="ctrl.description" class="form-control" name="review" rows="3"  placeholder="Write a sub product desciption"></textarea>
+  </div>
+  <div class="form-group half">
+    <label for="price" class="control-label">Price:</label>
+    <input required="required" type="number" ng-model="ctrl.price" class="form-control" name="price" placeholder="Price">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" name="submit" type="submit">Create Sub-Product</button>
+  </div>
+</form>

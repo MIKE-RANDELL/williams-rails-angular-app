@@ -7,7 +7,6 @@
     ctrl.products = productsSet;
 
     this.gotoSelected = function(params){
-      //debugger;
       $state.go('home.sub-products',{'id': params});
     };
   }
