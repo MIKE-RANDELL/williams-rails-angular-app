@@ -8,28 +8,20 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @product = Product.create(product_params)
+    @product = Product.create(name: params[:product][:name], description: params[:product][:description],
+                              photo: decode_base64)
     render json: @product
   end
 
-  def show #altered to include sub-products
+  def decode_base64
+    decoded_data = Base64.decode64(params[:product][:picture][:image][:base64])
+    data = StringIO.new(decoded_data)
+    data
+  end
+
+  def show
     @product = Product.find(params[:id])
-    binding.pry
     render json: @product
-    #if @product.save
-    #  render json: {status: 'ok'}
-    #else
-    #  render json:
-    #    { errors: @product.errors.full_messages },
-    #    status: :unprocessable_entity
-    #end
-  end
-
-  def show_sub_products
-    product = Product.find(params[:id])
-    @sub_products = product.sub_products
-    render json: @sub_products
   end
 
   def update
@@ -46,6 +38,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description)
   end
 end

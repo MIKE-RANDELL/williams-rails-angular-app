@@ -15,14 +15,13 @@
 
     ctrl.name = "";
     ctrl.description = "";
-    ctrl.price;
 
-
+    ctrl.picture = {};
 
     this.createProduct = createProduct
 
     function createProduct(){
-      var data = {"name": ctrl.name, "description": ctrl.description, "price": ctrl.price};
+      var data = {"name": ctrl.name, "description": ctrl.description, "picture": ctrl.picture};
       ProductService.makeProduct(data).then(function(res){console.log(res)})
     }
   }
