@@ -4,7 +4,7 @@
     angular
       .module('williams')
       .config(['$stateProvider', '$urlRouterProvider',
-      function($stateProvider, $urlRouterProvider, ReviewsService) {
+      function($stateProvider, $urlRouterProvider) {
         $stateProvider
           .state('home', {
             url: '/',
@@ -34,19 +34,29 @@
           .state('home.products', {
             url: 'products',
             controller: 'ProductsController as vm',
-            //templateUrl: 'products/products.html',
+            templateUrl: 'products/products.html',
+            //views: {
+            //  '': {
+            //    templateUrl: 'products/products.html',
+            //  },
+            //  'product-details@home.products': {
+            //    templateUrl: 'products/product_details.html'
+            //  }
+            //}
             resolve: {
-              productsSet: function(){
-
+              productsSet: function(ProductService){
+                return ProductService.getProducts().then(function(response){return response})
               }
-            },
-            views: {
-              '': {
-                templateUrl: 'products/products.html',
-              },
-              'product-details@home.products': {
-                templateUrl: 'products/product_details.html'
-              }
+            }
+          })
+          .state('home.sub-products', { //had home.sub-products
+            url: 'product/:id/sub-products',
+            controller: 'SubProductsController as vm',
+            templateUrl: 'sub-products/sub-products.html',
+            resolve: {
+              subProductsSet: ['ProductService', '$stateParams', function(ProductService, $stateParams){
+                return ProductService.getSubProducts($stateParams.id).then(function(response){return response)})
+              }]
             }
           })
 

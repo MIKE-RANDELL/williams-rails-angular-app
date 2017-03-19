@@ -1,4 +1,15 @@
-hello
+{{vm.products}}
+
+<div ng-repeat="product in vm.products">
+  <a href="" ng-click="vm.gotoSelected(product.id)">LINK</a>
+</div>
+
+
+
+
 
 <create-product></create-product>
+<!--
 <div ui-view="product-details"></div>
+<a ng-href="home.sub-products({proj_id: 10})">LINK</a>
+-->
