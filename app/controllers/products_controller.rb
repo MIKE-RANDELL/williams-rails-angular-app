@@ -8,8 +8,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(name: params[:product][:name], description: params[:product][:description],
-                              photo: decode_base64)
+    @product = Product.new(product_params)
+    @product.photo = decode_base64
+    @product.save                  
     render json: @product
   end
 

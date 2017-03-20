@@ -10,7 +10,7 @@
     }
   }
 
-  function CreateProductController(ProductService){
+  function CreateProductController(ProductService, $state){
     var ctrl = this;
 
     ctrl.name = "";
@@ -22,11 +22,11 @@
 
     function createProduct(){
       var data = {"name": ctrl.name, "description": ctrl.description, "picture": ctrl.picture};
-      ProductService.makeProduct(data).then(function(res){console.log(res)})
+      ProductService.makeProduct(data).then(function(response){$state.reload()})
     }
   }
 
   angular
     .module('williams')
-    .directive('createProduct', ['ProductService', createProduct])
+    .directive('createProduct', ['ProductService', '$state', createProduct])
 }())

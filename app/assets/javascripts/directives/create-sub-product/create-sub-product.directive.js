@@ -18,13 +18,13 @@
     ctrl.price;
     ctrl.product = $stateParams.id
 
-
+    ctrl.picture = {};
 
     this.createSubProduct = createSubProduct
 
     function createSubProduct(){
-      var data = {"name": ctrl.name, "description": ctrl.description, "price": ctrl.price, "product_id": ctrl.product};
-      ProductService.makeSubProduct(data).then(function(res){console.log(res)})
+      var data = {"name": ctrl.name, "description": ctrl.description, "price": ctrl.price, "product_id": ctrl.product, "picture": ctrl.picture};
+      ProductService.makeSubProduct(data).then(function(response){$state.reload()})
     }
   }
 

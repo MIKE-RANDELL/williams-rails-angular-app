@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Services
+        <br><small class="text-info">Here are some of the products & services we offer</small>
+      </h1>
+		</div>
+	</div>
+</div>
+<br>
+
+<div class="container">
+  <div ng-repeat="productSet in ctrl.chunkedData">
+	  <div class="row">
+      <div ng-repeat="product in productSet">
+	      <div class="col-xs-6 col-sm-4 col-lg-4">
+			    <div class="thumbnail">
+				    <img src="{{product.photo}}">
+				    <div class="caption">
+					    <h3>{{product.name}}</h2>
+					    <p class="flex-text text-muted">{{product.description}}</p>
+					    <p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product.id)">Link</a></p>
+				    </div>
+			    </div>
+		    </div>
+      </div>
+    </div>
+	</div>
+</div>
+
+<style type="text/css">
+body {
+		background-color: rgba(0, 0, 0, 0.03);
+		padding-top: 15px;
+	  font-family: 'Lato', sans-serif;
+	}
+
+/* make gutter sizes consistent */
+.flex-row  {
+    padding-left: 15px;
+    padding-right: 15px;
+}
