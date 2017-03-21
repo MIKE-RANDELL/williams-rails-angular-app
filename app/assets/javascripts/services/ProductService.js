@@ -3,10 +3,11 @@
   'use-strict'
 
   function ProductService($http){
-    this.makeProduct = makeProduct
-    this.getProducts = getProducts
-    this.makeSubProduct = makeSubProduct
-    this.getSubProducts = getSubProducts
+    this.makeProduct = makeProduct;
+    this.getProducts = getProducts;
+    this.makeSubProduct = makeSubProduct;
+    this.getSubProducts = getSubProducts;
+    this.updateSubProduct = updateSubProduct;
 
     function makeProduct(product){
       var req = {
@@ -18,6 +19,10 @@
         data: {product}
       }
       return $http(req).then(function(res){return res.data})
+    }
+
+    function getProducts(){
+      return $http.get('/products').then(function(res){return res.data})
     }
 
     function makeSubProduct(sub_product){
@@ -32,12 +37,20 @@
       return $http(req).then(function(res){return res.data})
     }
 
-    function getProducts(){
-      return $http.get('/products').then(function(res){return res.data})
-    }
-
     function getSubProducts(product_id){
       return $http.get(`/product/${product_id}/sub_products`).then(function(res){return res.data});
+    }
+
+    function updateSubProduct(sub_product){
+      var req = {
+        method: 'PATCH',
+        url: `/sub_products/${sub_product.id}`,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {sub_product}
+      }
+      return $http(req).then(function(res){return res.data})
     }
   }
 

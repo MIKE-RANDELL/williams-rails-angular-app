@@ -1,1 +1,6 @@
-edit sub product
+<div class="caption panel-body">
+  <h2><input class="input-block-level" type="text" ng-model="ctrl.subProduct.name"></input></h2>
+  <p class="text-muted"><input class="input-block-level" type="text" ng-model="ctrl.subProduct.description"></input></p>
+  <p class="text-muted"><input class="input-block-level" type="number" ng-model="ctrl.subProduct.price"></input></p>
+  <a href="" ng-click="ctrl.updateSubProduct();ctrl.editModeOff()" class="btn btn-default"><span class=""> UPDATE</span></a>
+</div>

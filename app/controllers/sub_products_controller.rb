@@ -24,6 +24,16 @@ class SubProductsController < ApplicationController
     data
   end
 
+  def update
+    @sub_product = SubProduct.find(params[:sub_product][:id])
+    @sub_product.update_attributes(sub_product_params)
+    if @sub_product.save
+      render json: @sub_product
+    else
+      console.log('error')
+    end
+  end
+
   private
 
   def sub_product_params

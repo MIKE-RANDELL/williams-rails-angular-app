@@ -10,7 +10,7 @@
     }
   }
 
-  function CreateSubProductController(ProductService, $stateParams){
+  function CreateSubProductController(ProductService, $stateParams, $state){
     var ctrl = this;
 
     ctrl.name = "";
@@ -30,5 +30,5 @@
 
   angular
     .module('williams')
-    .directive('createSubProduct', ['ProductService', '$stateParams', createSubProduct])
+    .directive('createSubProduct', ['ProductService', '$stateParams', '$state', createSubProduct])
 }())

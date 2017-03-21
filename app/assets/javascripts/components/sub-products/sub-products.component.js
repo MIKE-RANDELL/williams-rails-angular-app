@@ -7,6 +7,8 @@
 
     this.chunkSetData = chunkSetData;
     this.setEditMode = setEditMode;
+    this.onEditMode = onEditMode;
+    this.offEditMode = offEditMode;
 
     ctrl.subProducts = ctrl.id;
 
@@ -14,6 +16,15 @@
       for(i=0; i < data.length; i++){
         data[i].editMode = false;
       }
+    }
+
+    function onEditMode(subProduct){
+      subProduct.editMode = true;
+    }
+
+    function offEditMode(subProduct){
+      subProduct.editMode = false;
+      //debugger;
     }
 
     function chunkSetData(data, size){

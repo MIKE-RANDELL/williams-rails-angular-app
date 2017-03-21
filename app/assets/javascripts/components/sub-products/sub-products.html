@@ -1,19 +1,22 @@
+{{ctrl.subProducts}}
 <div class="container">
-  <div ng-repeat="subProductSet in ctrl.chunkedSetData">
+  <div data-index="{{$index}}" ng-repeat="subProductSet in ctrl.chunkedSetData track by $index">
 	  <div class="row">
-      <div ng-repeat="subProduct in subProductSet track by $index">
+      {{subProductSet}}
+      <div  ng-repeat="subProduct in subProductSet">
+
 	      <div class="col-xs-6 col-sm-4 col-lg-4">
 			    <div class="thumbnail">
 				    <img src="{{subProduct.photo}}">
             <div ng-if="subProduct.editMode">
-              <edit-sub-product></edit-sub-product>
+              <edit-sub-product id="subProduct" toggleEditMode="offEditMode()"></edit-sub-product>
             </div>
             <div ng-if="subProduct.editMode == false">
 				      <div class="caption panel-body">
-					      <h3>{{subProduct.name}}</h2>
+					      <h3>{{subProduct.name}}{{subProduct.id}}</h2>
 					      <p class="text-muted">{{subProduct.description}}</p>
                 <p class="text-muted">{{subProduct.price}}</p>
-                <a href="" ng-click="subProduct.editMode = true" class="btn btn-default btn-mini"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="" ng-click="subProduct.editMode = true" class="btn btn-default btn-mini"><span class=""></span></a>
 				      </div>
             </div>
 			    </div>
