@@ -8,7 +8,8 @@
       "angular-base64-upload": "latest",
       "moment": "latest",
       "bootstrap": "latest",
-      "bootstrap-sass" : "latest"
+      "bootstrap-sass" : "latest",
+      "angular-filter" : "latest"
     }
   }
 }

@@ -28,7 +28,11 @@
         },
         data: {review}
       }
-      return $http(req).then(function(response){return response})
+      return $http(req).then(function(response){return response.data})
+    }
+
+    function handleInitReviewsData(reviews){
+      this.data = reviews;
     }
 
     function handleNewReviewData(newReview){
@@ -36,11 +40,7 @@
       $rootScope.$emit('reviewsDataUpdate');
     }
 
-    function handleInitReviewsData(reviews){
-      this.data = reviews;
-    }
-
-    function handleGetReviewsData(){
+    function handleGetNewReviewData(){
       return this.data.last;
     }
   }

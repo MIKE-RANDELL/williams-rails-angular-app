@@ -9,7 +9,7 @@
 </div>
 <br>
 
-<div class="container">
+<!--<div class="container">
   <div ng-repeat="productSet in ctrl.chunkedData">
 	  <div class="row">
       <div ng-repeat="product in productSet">
@@ -26,7 +26,50 @@
       </div>
     </div>
 	</div>
+</div>-->
+
+<div class="container">
+  <div ng-repeat="product in ctrl.products | chunkBy: 3">
+	  <div class="row">
+	    <div class="col-xs-6 col-sm-4 col-lg-4" ng-if="product[0]">
+			  <div class="thumbnail">
+			    <img src="{{product[0].photo}}">
+			    <div class="caption">
+				    <h3>{{product[0].name}}</h2>
+				    <p class="flex-text text-muted">{{product[0].description}}</p>
+				    <p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">Link</a></p>
+			    </div>
+			  </div>
+		  </div>
+			<div class="col-xs-6 col-sm-4 col-lg-4" ng-if="product[1]">
+				<div class="thumbnail">
+					<img src="{{product[1].photo}}">
+					<div class="caption">
+						<h3>{{product[1].name}}</h2>
+						<p class="flex-text text-muted">{{product[1].description}}</p>
+						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[1].id)">Link</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-lg-4" ng-if="product[2]">
+				<div class="thumbnail">
+					<img src="{{product[2].photo}}">
+					<div class="caption">
+						<h3>{{product[2].name}}</h2>
+						<p class="flex-text text-muted">{{product[2].description}}</p>
+						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">Link</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
 </div>
+
+
+
+
+
+
 
 <style type="text/css">
 body {

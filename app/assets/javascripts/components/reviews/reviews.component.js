@@ -1,28 +1,24 @@
 
 (function(){
 
-
   'use strict'
 
   function ReviewsController(ReviewsService, $scope){
     var ctrl = this;
-    this.addReviewsData = addReviewsData;
+    this.addReviewsDataService = addReviewsDataService;
 
     ctrl.initResolvedReviews = this.id;
     ctrl.reviews = ctrl.initResolvedReviews;
 
     $scope.$on('reviewsDataUpdate', function(){
-      var newReview = ReviewsService.handleGetReviewsData()
+      var newReview = ReviewsService.handleGetNewReviewData()
       ctrl.reviews.push(newReview)
-      $scope.$apply()
     });
 
-
-
-    function addReviewsData() {
+    function addReviewsDataService() {
       ReviewsService.handleInitReviewsData(ctrl.initResolvedReviews)
     }
-    addReviewsData()
+    addReviewsDataService() //intial setup of ReviewsService data handling
   }
 
   var reviews = {
@@ -33,8 +29,6 @@
     controller: ReviewsController,
     controllerAs: 'ctrl'
   }
-
-
 
   angular
     .module('williams')

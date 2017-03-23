@@ -18,20 +18,20 @@
 
     ctrl.user = "";
     ctrl.review = "";
-    ctrl.rev = null;
+    ctrl.newReview = null;
 
     function createReview(){
       ReviewsService.createReview({"name": ctrl.user, "review": ctrl.review})
                     .then(function(response){
-                      ctrl.rev = response.data;
-                      if (ctrl.rev){
-                        ctrl.handleReviewData()
+                      ctrl.newReview = response;
+                      if (ctrl.newReview){
+                        ctrl.handleReviewData(ctrl.newReview)
                       };
-                     })
+      })
     };
 
-    function handleReviewData(){
-      ReviewsService.handleNewReviewData(ctrl.rev)
+    function handleReviewData(data){
+      ReviewsService.handleNewReviewData(data)
     }
   }
 

@@ -7,4 +7,5 @@
 //= require angular-base64-upload
 //= require bootstrap-sass
 //= require moment
+//= require angular-filter
 //= require_tree .

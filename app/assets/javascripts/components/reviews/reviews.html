@@ -1,3 +1,6 @@
-<div ng-repeat="review in ctrl.reviews">
-  {{review}}
+<div ng-repeat="reviewObj in ctrl.reviews">
+  {{reviewObj.review}}
+  <br>
+  -{{reviewObj.name}}
+  <br><br>
 </div>

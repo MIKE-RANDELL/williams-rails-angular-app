@@ -15,15 +15,27 @@
 
     ctrl.name = "";
     ctrl.description = "";
+    ctrl.newProduct = null;
 
     ctrl.picture = {};
 
-    this.createProduct = createProduct
+    this.createProduct = createProduct;
+    this.handleProductData = handleProductData;
 
     function createProduct(){
+
       var data = {"name": ctrl.name, "description": ctrl.description, "picture": ctrl.picture};
-      ProductService.makeProduct(data).then(function(response){$state.reload()})
-    }
+      ProductService.makeProduct(data).then(function(response){
+                                        ctrl.newProduct = response;
+                                        if (ctrl.newProduct){
+                                          ctrl.handleProductData(ctrl.newProduct)
+                                        };
+      })
+    };
+
+    function handleProductData(data){
+      ProductService.handleNewProductData(data)
+    };
   }
 
   angular
