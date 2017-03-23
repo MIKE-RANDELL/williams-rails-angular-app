@@ -10,21 +10,32 @@
     }
   }
 
-  function CreateReviewController(ReviewsService, $state){
+  function CreateReviewController(ReviewsService, $scope){
     var ctrl = this;
+
+    this.createReview = createReview;
+    this.handleReviewData = handleReviewData;
 
     ctrl.user = "";
     ctrl.review = "";
+    ctrl.rev = null;
 
-    this.createReview = function createReview(){
+    function createReview(){
       ReviewsService.createReview({"name": ctrl.user, "review": ctrl.review})
-                    .then(function(){ $state.reload() }) //had to put $state.reload() in callback
-                                                        //so promise is completed and parent (routing resolve) is updated
-      //I had $state.reload() here...and was ran before promise was resolved
+                    .then(function(response){
+                      ctrl.rev = response.data;
+                      if (ctrl.rev){
+                        ctrl.handleReviewData()
+                      };
+                     })
+    };
+
+    function handleReviewData(){
+      ReviewsService.handleNewReviewData(ctrl.rev)
     }
   }
 
   angular
     .module('williams')
-    .directive('createReview', ['ReviewsService', '$state', createReview])
+    .directive('createReview', ['ReviewsService', createReview])
 }())

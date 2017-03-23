@@ -2,9 +2,12 @@
 
   'use-strict';
 
-  function ReviewsService($http){
+  function ReviewsService($http, $rootScope){
+
     this.getReviews = getReviews;
     this.createReview = createReview;
+    this.handleNewReviewData = handleNewReviewData;
+    this.handleInitReviewsData = handleInitReviewsData;
 
     this.data = [];
 
@@ -26,6 +29,19 @@
         data: {review}
       }
       return $http(req).then(function(response){return response})
+    }
+
+    function handleNewReviewData(newReview){
+      this.data.push(newReview);
+      $rootScope.$emit('reviewsDataUpdate');
+    }
+
+    function handleInitReviewsData(reviews){
+      this.data = reviews;
+    }
+
+    function handleGetReviewsData(){
+      return this.data.last;
     }
   }
 
