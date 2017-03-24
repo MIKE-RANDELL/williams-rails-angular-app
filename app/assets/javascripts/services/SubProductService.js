@@ -7,8 +7,6 @@
     this.getSubProducts = getSubProducts;
     this.updateSubProduct = updateSubProduct;
 
-    this.data = [];
-
     function makeSubProduct(sub_product){
       var req = {
         method: 'POST',
@@ -25,14 +23,14 @@
       return $http.get(`/product/${product_id}/sub_products`).then(function(res){return res.data});
     };
 
-    function updateSubProduct(sub_product){
+    function updateSubProduct(subProduct){
       var req = {
         method: 'PATCH',
-        url: `/sub_products/${sub_product.id}`,
+        url: `/sub_products/${subProduct.id}`,
         headers: {
           'Content-Type': 'application/json'
         },
-        data: {sub_product}
+        data: {subProduct}
       }
       return $http(req).then(function(res){return res.data})
     };

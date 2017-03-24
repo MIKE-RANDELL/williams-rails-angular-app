@@ -5,14 +5,16 @@
 			  <div class="thumbnail">
 				  <img src="{{subProduct[0].photo}}">
           <div ng-if="subProduct[0].editMode">
-            <edit-sub-product id="subProduct[0]" offToggleEditMode="ctrl.offEditMode(subProduct[0])"></edit-sub-product>
+            <div class="caption panel-body">
+              <edit-sub-product id="subProduct[0]" edit-off-fn="ctrl.offEditMode"></edit-sub-product>
+            </div>
           </div>
           <div ng-if="subProduct[0].editMode == false">
 				    <div class="caption panel-body">
-				      <h3>{{subProduct[0].name}}{{subProduct[0].id}}</h2>
+				      <h3>{{subProduct[0].name}}</h2>
 				      <p class="text-muted">{{subProduct[0].description}}</p>
               <p class="text-muted">{{subProduct[0].price}}</p>
-              <a href="" ng-click="subProduct[0].editMode = true" class="btn btn-default btn-mini"><span class=""></span></a>
+              <a href="" ng-click="ctrl.onEditMode(subProduct[0])" class="btn btn-default btn-mini"><span class=""></span></a>
 				    </div>
           </div>
 			  </div>
@@ -21,14 +23,16 @@
         <div class="thumbnail">
           <img src="{{subProduct[1].photo}}">
           <div ng-if="subProduct[1].editMode">
-            <edit-sub-product id="subProduct[1]" offToggleEditMode="ctrl.offEditMode(subProduct[1])"></edit-sub-product>
+            <div class="caption panel-body">
+              <edit-sub-product id="subProduct[1]" edit-off-fn="ctrl.offEditMode"></edit-sub-product>
+            </div>
           </div>
           <div ng-if="subProduct[1].editMode == false">
             <div class="caption panel-body">
-              <h3>{{subProduct[1].name}}{{subProduct[1].id}}</h2>
+              <h3>{{subProduct[1].name}}</h2>
               <p class="text-muted">{{subProduct[1].description}}</p>
               <p class="text-muted">{{subProduct[1].price}}</p>
-              <a href="" ng-click="subProduct[1].editMode = true" class="btn btn-default btn-mini"><span class=""></span></a>
+              <a href="" ng-click="ctrl.onEditMode(subProduct[1])" class="btn btn-default btn-mini"><span class=""></span></a>
             </div>
           </div>
         </div>
@@ -37,14 +41,16 @@
         <div class="thumbnail">
           <img src="{{subProduct[2].photo}}">
           <div ng-if="subProduct[2].editMode">
-            <edit-sub-product id="subProduct[2]" offToggleEditMode="ctrl.offEditMode(subProduct[2])"></edit-sub-product>
+            <div class="caption panel-body">
+              <edit-sub-product id="subProduct[2]" edit-off-fn="ctrl.offEditMode"></edit-sub-product>
+            </div>
           </div>
           <div ng-if="subProduct[2].editMode == false">
             <div class="caption panel-body">
-              <h3>{{subProduct[2].name}}{{subProduct[2].id}}</h2>
+              <h3>{{subProduct[2].name}}</h2>
               <p class="text-muted">{{subProduct[2].description}}</p>
               <p class="text-muted">{{subProduct[2].price}}</p>
-              <a href="" ng-click="subProduct[2].editMode = true" class="btn btn-default btn-mini"><span class=""></span></a>
+              <a href="" ng-click="ctrl.onEditMode(subProduct[2])" class="btn btn-default btn-mini"><span class=""></span></a>
             </div>
           </div>
         </div>

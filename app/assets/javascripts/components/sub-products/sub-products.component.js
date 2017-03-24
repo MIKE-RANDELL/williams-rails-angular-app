@@ -2,7 +2,7 @@
 
   'use-strict'
 
-  function SubProductsController($state){
+  function SubProductsController($state, SubProductService){
     var ctrl = this;
 
     this.setEditMode = setEditMode;
@@ -10,7 +10,7 @@
     this.offEditMode = offEditMode;
 
     ctrl.initResolvedSubProducts = ctrl.id;
-    ctrl.subProducts = ctrl.initResolvedSubProducts;
+    ctrl.subProducts = ctrl.id;
 
     function setEditMode(data){
       for(i=0; i < data.length; i++){
@@ -23,8 +23,6 @@
     }
 
     function offEditMode(subProduct){
-      debugger;
-      console.log(subProduct)
       subProduct.editMode = false;
     }
 

@@ -10,14 +10,18 @@
       bindToController: true,
       scope: {
         id: '=',
-        offToggleEditMode: '&'
+        editOffFn: '&'
       },
       compile: function($element, $attrs){
         return {
           post: function(scope, elem, attrs, ctrl){
             ctrl.editModeOff = function(){
-              scope.ctrl.subProduct.editMode = false;
+              ctrl.editOffFn()(ctrl.subProduct)
             }
+            //*what I had working originally before passing parent function*
+            //  ctrl.editModeOff = function(){
+            //    scope.ctrl.subProduct.editMode = false;
+            //  }
           }
         }
       }
@@ -25,20 +29,18 @@
 
     function EditSubProduct(SubProductService, $state){
       var ctrl = this;
-      this.updateSubProduct = updateSubProduct;
-      this.offToggleEditMode = ctrl.offToggleEditMode;
-
-      console.log(ctrl.offToggleEditMode)
+      
+      this.copySubProduct = copySubProduct;
 
       ctrl.subProduct = ctrl.id;
+      ctrl.formSubProduct = null;
 
       ctrl.subProduct.price = parseFloat(ctrl.subProduct.price);
 
-      function updateSubProduct(){
-        data = {"id": this.subProduct.id, "name": this.subProduct.name, "description": this.subProduct.description, "price": this.subProduct.price}
-        SubProductService.updateSubProduct(data).then(function(response){return response})
-        //this.editModeOff() //this is running through on-click event now
-      };
+      function copySubProduct(){
+        ctrl.formSubProduct = angular.copy(ctrl.subProduct)
+      }
+      copySubProduct()
     }
   }
 
