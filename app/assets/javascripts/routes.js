@@ -46,8 +46,8 @@
             controller: 'SubProductsController as vm',
             templateUrl: 'sub-products/sub-products.html',
             resolve: {                                                   //dependencies needed to be in order
-              subProductsGet: ['ProductService', '$stateParams', function(ProductService, $stateParams){
-                return ProductService.getSubProducts($stateParams.id).then(function(response){return response})
+              subProductsGet: ['SubProductService', '$stateParams', function(SubProductService, $stateParams){
+                return SubProductService.getSubProducts($stateParams.id).then(function(response){return response})
               }]
             }
           })

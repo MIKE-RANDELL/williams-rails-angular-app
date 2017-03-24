@@ -10,7 +10,7 @@
     }
   }
 
-  function CreateSubProductController(ProductService, $stateParams, $state){
+  function CreateSubProductController(SubProductService, $stateParams, $state){
     var ctrl = this;
 
     ctrl.name = "";
@@ -24,11 +24,11 @@
 
     function createSubProduct(){
       var data = {"name": ctrl.name, "description": ctrl.description, "price": ctrl.price, "product_id": ctrl.product, "picture": ctrl.picture};
-      ProductService.makeSubProduct(data).then(function(response){$state.reload()})
+      SubProductService.makeSubProduct(data).then(function(response){$state.reload()})
     }
   }
 
   angular
     .module('williams')
-    .directive('createSubProduct', ['ProductService', '$stateParams', '$state', createSubProduct])
+    .directive('createSubProduct', ['SubProductService', '$stateParams', '$state', createSubProduct])
 }())

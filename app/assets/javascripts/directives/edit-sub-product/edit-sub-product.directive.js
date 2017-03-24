@@ -10,26 +10,25 @@
       bindToController: true,
       scope: {
         id: '=',
-        toggleEditMode: '&'
+        offToggleEditMode: '&'
       },
       compile: function($element, $attrs){
         return {
-          pre: function(scope, element, attrs){
-
-          },
-          post: function(scope, element, attrs, controller){
-            controller.editModeOff = function(){
-              scope.$parent.$parent.subProduct.editMode = false;
+          post: function(scope, elem, attrs, ctrl){
+            ctrl.editModeOff = function(){
+              scope.ctrl.subProduct.editMode = false;
             }
           }
         }
       }
     }
 
-    function EditSubProduct(ProductService, $state){
+    function EditSubProduct(SubProductService, $state){
       var ctrl = this;
       this.updateSubProduct = updateSubProduct;
-      this.toggleEditMode = ctrl.toggleEditMode;
+      this.offToggleEditMode = ctrl.offToggleEditMode;
+
+      console.log(ctrl.offToggleEditMode)
 
       ctrl.subProduct = ctrl.id;
 
@@ -37,7 +36,7 @@
 
       function updateSubProduct(){
         data = {"id": this.subProduct.id, "name": this.subProduct.name, "description": this.subProduct.description, "price": this.subProduct.price}
-        ProductService.updateSubProduct(data).then(function(response){return response})
+        SubProductService.updateSubProduct(data).then(function(response){return response})
         //this.editModeOff() //this is running through on-click event now
       };
     }
@@ -45,5 +44,5 @@
 
   angular
     .module('williams')
-    .directive('editSubProduct', ['ProductService', '$state', editSubProduct])
+    .directive('editSubProduct', ['SubProductService', '$state', editSubProduct])
 }())

@@ -5,12 +5,12 @@
   function SubProductsController($state){
     var ctrl = this;
 
-    this.chunkSetData = chunkSetData;
     this.setEditMode = setEditMode;
     this.onEditMode = onEditMode;
     this.offEditMode = offEditMode;
 
-    ctrl.subProducts = ctrl.id;
+    ctrl.initResolvedSubProducts = ctrl.id;
+    ctrl.subProducts = ctrl.initResolvedSubProducts;
 
     function setEditMode(data){
       for(i=0; i < data.length; i++){
@@ -23,23 +23,12 @@
     }
 
     function offEditMode(subProduct){
+      debugger;
+      console.log(subProduct)
       subProduct.editMode = false;
-      //debugger;
-    }
-
-    function chunkSetData(data, size){
-      var chunkedArr = [];
-      //for(i=0; i < data.length; i++){
-      //  data[i].editMode = false;
-      //}
-      for(i=0; i < data.length; i += size){
-        chunkedArr.push(data.slice(i, i+size))
-      }
-      return chunkedArr;
     }
 
     setEditMode(ctrl.subProducts);
-    ctrl.chunkedSetData = chunkSetData(ctrl.subProducts, 3);
   }
 
   var subProducts = {

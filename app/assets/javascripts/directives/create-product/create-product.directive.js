@@ -21,9 +21,9 @@
 
     this.createProduct = createProduct;
     this.handleProductData = handleProductData;
+    this.resetProductForm = resetProductForm;
 
     function createProduct(){
-
       var data = {"name": ctrl.name, "description": ctrl.description, "picture": ctrl.picture};
       ProductService.makeProduct(data).then(function(response){
                                         ctrl.newProduct = response;
@@ -34,7 +34,14 @@
     };
 
     function handleProductData(data){
-      ProductService.handleNewProductData(data)
+      ProductService.handleNewProductData(data);
+      ctrl.resetProductForm();
+    };
+
+    function resetProductForm(){
+      ctrl.name = "";
+      ctrl.description = "";
+      ctrl.picture = {};
     };
   }
 
