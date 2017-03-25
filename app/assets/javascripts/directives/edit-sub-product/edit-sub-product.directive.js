@@ -29,18 +29,10 @@
 
     function EditSubProduct(SubProductService, $state){
       var ctrl = this;
-      
-      this.copySubProduct = copySubProduct;
 
       ctrl.subProduct = ctrl.id;
-      ctrl.formSubProduct = null;
 
       ctrl.subProduct.price = parseFloat(ctrl.subProduct.price);
-
-      function copySubProduct(){
-        ctrl.formSubProduct = angular.copy(ctrl.subProduct)
-      }
-      copySubProduct()
     }
   }
 
