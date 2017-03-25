@@ -12,22 +12,28 @@
         id: '=',
         editOffFn: '&'
       },
-      compile: function($element, $attrs){
-        return {
-          post: function(scope, elem, attrs, ctrl){
-            ctrl.editModeOff = function(){
-              ctrl.editOffFn()(ctrl.subProduct)
-            }
-            //*what I had working originally before passing parent function*
-            //  ctrl.editModeOff = function(){
-            //    scope.ctrl.subProduct.editMode = false;
-            //  }
-          }
+      require: '^sub-products',
+      link: function(scope, element, attrs, ctrl){
+        scope.ctrl.editModeOff = function(){
+          ctrl.offEditMode(scope.ctrl.subProduct)
         }
       }
+      //compile: function($element, $attrs){
+      //  return {
+      //    post: function(scope, elem, attrs, ctrl){
+      //      ctrl.editModeOff = function(){
+      //        ctrl.editOffFn()(ctrl.subProduct)
+      //      }
+      //      //*what I had working originally before passing parent function*
+      //      //  ctrl.editModeOff = function(){
+      //      //    scope.ctrl.subProduct.editMode = false;
+      //      //  }
+      //    }
+      //  }
+      //}
     }
 
-    function EditSubProduct(SubProductService, $state){
+    function EditSubProduct(SubProductService){
       var ctrl = this;
 
       ctrl.subProduct = ctrl.id;
