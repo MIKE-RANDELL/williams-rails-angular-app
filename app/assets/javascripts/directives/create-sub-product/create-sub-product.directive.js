@@ -21,11 +21,24 @@
     ctrl.picture = {};
 
     this.createSubProduct = createSubProduct
+    this.handleSubProductData = handleSubProductData;
+
 
     function createSubProduct(){
       var data = {"name": ctrl.name, "description": ctrl.description, "price": ctrl.price, "product_id": ctrl.product, "picture": ctrl.picture};
-      SubProductService.makeSubProduct(data).then(function(response){$state.reload()})
+      SubProductService.makeSubProduct(data).then(function(response){
+                                              ctrl.newSubProduct = response;
+                                              if(ctrl.newSubProduct){
+                                                ctrl.handleSubProductData(ctrl.newSubProduct)
+                                              };
+      })
     }
+
+    function handleSubProductData(data){
+      SubProductService.handleNewSubProductData(data);
+      //ctrl.resetSubProductForm()
+    };
+
   }
 
   angular

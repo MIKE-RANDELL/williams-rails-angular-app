@@ -6,6 +6,12 @@
     this.makeSubProduct = makeSubProduct;
     this.getSubProducts = getSubProducts;
     this.updateSubProduct = updateSubProduct;
+    this.handleInitSubProductsData = handleInitSubProductsData;
+    this.handleNewSubProductData = handleNewSubProductData;
+    this.handleGetNewSubProductData = handleGetNewSubProductData;
+    this.getAllSubProductsData = getAllSubProductsData;
+
+    this.data = [];
 
     function makeSubProduct(sub_product){
       var req = {
@@ -34,6 +40,24 @@
       }
       return $http(req).then(function(res){return res.data})
     };
+
+    function handleInitSubProductsData(subProducts){
+      this.data = subProducts;
+    }
+
+    function handleNewSubProductData(newSubProduct){
+      newSubProduct.editMode = false;
+      this.data.push(newSubProduct);
+      $rootScope.$emit('subProductsDataUpdate')
+    }
+
+    function handleGetNewSubProductData(){
+      return this.data.last;
+    }
+
+    function getAllSubProductsData(){
+      return this.data;
+    }
   }
 
   angular

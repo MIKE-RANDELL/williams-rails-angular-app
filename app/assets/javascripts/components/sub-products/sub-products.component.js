@@ -2,15 +2,20 @@
 
   'use-strict'
 
-  function SubProductsController($state, SubProductService){
+  function SubProductsController($state, SubProductService, $scope){
     var ctrl = this;
 
+    this.getSubProductsData = getSubProductsData;
     this.setEditMode = setEditMode;
     this.onEditMode = onEditMode;
     this.offEditMode = offEditMode;
 
-    ctrl.initResolvedSubProducts = ctrl.id;
-    ctrl.subProducts = ctrl.id;
+    ctrl.subProducts = getSubProductsData()
+
+    $scope.$on('subProductsDataUpdate', function(){
+      var newSubProduct = SubProductService.handleGetNewSubProductData()
+      ctrl.subProducts.push(newSubProduct)
+    });
 
     function setEditMode(data){
       for(i=0; i < data.length; i++){
@@ -26,16 +31,17 @@
       subProduct.editMode = false;
     }
 
+    function getSubProductsData(){
+      return SubProductService.getAllSubProductsData()
+    }
+
     setEditMode(ctrl.subProducts);
   }
 
   var subProducts = {
     templateUrl: 'components/sub-products/sub-products.html',
     controller: SubProductsController,
-    controllerAs: 'ctrl',
-    bindings: {
-      id: '='
-    }
+    controllerAs: 'ctrl'
   }
 
   angular
