@@ -8,12 +8,6 @@
 
     ctrl.picture = {};
 
-    //ctrl.submit = function() {
-    //  $http.post('/pictures.json', ctrl.picture).then(function(res) {
-    //    ctrl.upload = res.data.photo;
-    //  });
-    //}
-
     ctrl.submit = function() {
       GalleryService.createPhoto(ctrl.picture).then(function(res){$state.reload()})
     }

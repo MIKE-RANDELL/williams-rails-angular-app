@@ -22,6 +22,7 @@
 
     this.createSubProduct = createSubProduct
     this.handleSubProductData = handleSubProductData;
+    this.resetSubProductForm = resetSubProductForm;
 
 
     function createSubProduct(){
@@ -36,7 +37,13 @@
 
     function handleSubProductData(data){
       SubProductService.handleNewSubProductData(data);
-      //ctrl.resetSubProductForm()
+      ctrl.resetSubProductForm()
+    };
+
+    function resetSubProductForm(){
+      ctrl.name = ctrl.description = ctrl.price = "";
+      ctrl.picture = {};
+      ctrl.newSubProduct = null;
     };
 
   }

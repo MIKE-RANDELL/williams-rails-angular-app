@@ -15,6 +15,7 @@
 
     this.createReview = createReview;
     this.handleReviewData = handleReviewData;
+    this.resetReviewForm = resetReviewForm;
 
     ctrl.user = "";
     ctrl.review = "";
@@ -31,7 +32,13 @@
     };
 
     function handleReviewData(data){
-      ReviewsService.handleNewReviewData(data)
+      ReviewsService.handleNewReviewData(data);
+      ctrl.resetReviewForm();
+    }
+
+    function resetReviewForm(){
+      ctrl.user = ctrl.review = ""
+      ctrl.newReview = null;
     }
   }
 
