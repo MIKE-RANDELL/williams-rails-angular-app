@@ -51,6 +51,16 @@
               }]
             }
           })
+          .state('home.estimates', {
+            url: 'estimates',
+            controller: 'EstimatesController as vm',
+            templateUrl: 'estimates/estimates.html',
+            resolve: {
+              estimatesSet: function(EstimatesService){
+                return EstimatesService.getEstimates().then(function(response){return response})
+              }
+            }
+          })
 
           $urlRouterProvider.otherwise('/')
       }])

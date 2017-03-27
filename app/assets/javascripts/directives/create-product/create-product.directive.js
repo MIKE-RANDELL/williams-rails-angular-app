@@ -39,9 +39,9 @@
     };
 
     function resetProductForm(){
-      ctrl.name = "";
-      ctrl.description = "";
+      ctrl.name = ctrl.description = "";
       ctrl.picture = {};
+      ctrl.newProduct = null;
     };
   }
 

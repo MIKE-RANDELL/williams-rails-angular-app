@@ -1,0 +1,44 @@
+<h1 class="text-center">Estimate Book</h1>
+<form class="form-padding">
+  <div class="row">
+    <div class="col-xs-4 pull-right">
+      <select class="form-control" ng-model="ctrl.selectedCity" ng-change="ctrl.filterCheck()">
+        <option ng-selected="true" disabled selected>Filter by city..</option>
+        <option value="All">All Cities</option>
+        <option value="Wellington">Wellington</option>
+        <option value="Lake worth">Lake Worth</option>
+        <option value="West Palm Beach">West Palm Beach</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Boca">Boca</option>
+        <option value="" selected hidden />
+      </select>
+    </div>
+  </div>
+</form>
+
+<div ng-if="!ctrl.filter" ng-repeat="estimate in ctrl.estimates">
+  <ul>
+    <li>
+      {{estimate.created_at}}
+      <br>
+      {{estimate.name}} - {{estimate.phone}}
+      <br>
+      {{estimate.street_address}}, {{estimate.city}}, {{estimate.zipcode}}
+      <br>
+      {{estimate.details}}
+    </li>
+  </ul>
+</div>
+<div ng-if="ctrl.filter" ng-repeat="estimate in ctrl.estimates | estimatesCityFilter:ctrl.selectedCity">
+  <ul>
+    <li>
+      {{estimate.created_at}}
+      <br>
+      {{estimate.name}} - {{estimate.phone}}
+      <br>
+      {{estimate.street_address}}, {{estimate.city}}, {{estimate.zipcode}}
+      <br>
+      {{estimate.details}}
+    </li>
+  </ul>
+</div>
