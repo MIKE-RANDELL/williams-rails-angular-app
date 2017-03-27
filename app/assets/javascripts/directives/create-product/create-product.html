@@ -2,19 +2,14 @@
 <form name="product" ng-submit="ctrl.createProduct()">
   <div class="form-group half">
 	  <label for="name" class="control-label">Name:</label>
-	  <input required="required" ng-model="ctrl.name" class="form-control" name="name" placeholder="Product name">
+	  <input required="required" ng-model="ctrl.name" class="form-control" name="name" placeholder="Product name" ng-model-options="{ updateOn: 'blur'}">
   </div>
 
   <div class="form-group">
 	  <label class="control-label" for="description">Description</label>
-		<textarea ng-model="ctrl.description" class="form-control" name="review" rows="3"  placeholder="Write a product desciption"></textarea>
+		<textarea ng-model="ctrl.description" class="form-control" name="review" rows="3"  placeholder="Write a product desciption" ng-model-options="{ updateOn: 'blur'}"></textarea>
   </div>
-<!--
-  <div class="form-group half">
-    <label for="price" class="control-label">Price:</label>
-    <input type="number" ng-model="ctrl.price" class="form-control" name="price" placeholder="Price">
-  </div>
--->
+
   <div class="form-group">
     <input type="file" ng-model="ctrl.picture.image" accept="image/*" base-sixty-four-input>
   </div>

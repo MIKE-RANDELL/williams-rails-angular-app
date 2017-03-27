@@ -8,6 +8,8 @@
     this.createReview = createReview;
     this.handleNewReviewData = handleNewReviewData;
     this.handleInitReviewsData = handleInitReviewsData;
+    this.handleGetNewReviewData = handleGetNewReviewData;
+    this.handleGetAllReviewsData = handleGetAllReviewsData;
 
     this.data = [];
 
@@ -42,6 +44,10 @@
 
     function handleGetNewReviewData(){
       return this.data.last;
+    }
+
+    function handleGetAllReviewsData(){
+      return this.data;
     }
   }
 

@@ -5,27 +5,22 @@
 
   function ReviewsController(ReviewsService, $scope){
     var ctrl = this;
-    this.addReviewsDataService = addReviewsDataService;
+    this.getReviewsData = getReviewsData;
 
-    ctrl.initResolvedReviews = this.id;
-    ctrl.reviews = ctrl.initResolvedReviews;
+    ctrl.reviews = getReviewsData();
 
     $scope.$on('reviewsDataUpdate', function(){
       var newReview = ReviewsService.handleGetNewReviewData()
       ctrl.reviews.push(newReview)
     });
 
-    function addReviewsDataService() {
-      ReviewsService.handleInitReviewsData(ctrl.initResolvedReviews)
+    function getReviewsData(){
+      return ReviewsService.handleGetAllReviewsData()
     }
-    addReviewsDataService() //intial setup of ReviewsService data handling
   }
 
   var reviews = {
     templateUrl: 'components/reviews/reviews.html',
-    bindings: {
-      id: '='
-    },
     controller: ReviewsController,
     controllerAs: 'ctrl'
   }
