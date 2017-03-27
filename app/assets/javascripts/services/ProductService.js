@@ -5,12 +5,10 @@
   function ProductService($http, $rootScope){
     this.makeProduct = makeProduct;
     this.getProducts = getProducts;
-    //this.makeSubProduct = makeSubProduct;
-    //this.getSubProducts = getSubProducts;
-    //this.updateSubProduct = updateSubProduct;
     this.handleInitProductsData = handleInitProductsData;
     this.handleNewProductData = handleNewProductData;
     this.handleGetNewProductData = handleGetNewProductData;
+    this.handleGetAllProductData = handleGetAllProductData;
 
     this.data = [];
 
@@ -30,34 +28,6 @@
       return $http.get('/products').then(function(res){return res.data})
     };
 
-    //function makeSubProduct(sub_product){
-    //  var req = {
-    //    method: 'POST',
-    //    url: '/sub_products',
-    //    headers: {
-    //      'Content-Type': 'application/json'
-    //    },
-    //    data: {sub_product}
-    //  }
-    //  return $http(req).then(function(res){return res.data})
-    //};
-//
-    //function getSubProducts(product_id){
-    //  return $http.get(`/product/${product_id}/sub_products`).then(function(res){return res.data});
-    //};
-//
-    //function updateSubProduct(sub_product){
-    //  var req = {
-    //    method: 'PATCH',
-    //    url: `/sub_products/${sub_product.id}`,
-    //    headers: {
-    //      'Content-Type': 'application/json'
-    //    },
-    //    data: {sub_product}
-    //  }
-    //  return $http(req).then(function(res){return res.data})
-    //};
-
     function handleInitProductsData(products){
       this.data = products;
     };
@@ -69,6 +39,10 @@
 
     function handleGetNewProductData(){
       return this.data.last;
+    }
+
+    function handleGetAllProductData(){
+      return this.data;
     }
   }
 

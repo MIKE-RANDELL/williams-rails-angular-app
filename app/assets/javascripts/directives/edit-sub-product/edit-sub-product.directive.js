@@ -12,7 +12,7 @@
         id: '=',
         editOffFn: '&'
       },
-      require: '^sub-products',
+      require: '^sub-products', //requiring parent controller
       link: function(scope, element, attrs, ctrl){
         scope.ctrl.editModeOff = function(){
           ctrl.offEditMode(scope.ctrl.subProduct)
@@ -35,10 +35,16 @@
 
     function EditSubProduct(SubProductService){
       var ctrl = this;
+      this.updateSubProduct = updateSubProduct;
 
       ctrl.subProduct = ctrl.id;
 
       ctrl.subProduct.price = parseFloat(ctrl.subProduct.price);
+
+      function updateSubProduct(){
+         data = {"id": this.subProduct.id, "name": this.subProduct.name, "description": this.subProduct.description, "price": this.subProduct.price}
+         SubProductService.updateSubProduct(data).then(function(response){return response})
+      };
     }
   }
 

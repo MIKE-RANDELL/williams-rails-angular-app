@@ -2,12 +2,19 @@
 
   'use-strict'
 
-  function ProductsController(productsSet, $state){
+  function ProductsController(productsSet, ProductService){
     var ctrl = this;
+    this.addProductsDataService = addProductsDataService;
+
     ctrl.products = productsSet;
+
+    function addProductsDataService(){
+      ProductService.handleInitProductsData(ctrl.products)
+    }
+    addProductsDataService()
   }
 
   angular
     .module('williams')
-    .controller('ProductsController', ['productsSet', '$state', ProductsController])
+    .controller('ProductsController', ['productsSet', 'ProductService', ProductsController])
 }())

@@ -23,14 +23,14 @@
       return $http.get(`/product/${product_id}/sub_products`).then(function(res){return res.data});
     };
 
-    function updateSubProduct(subProduct){
+    function updateSubProduct(sub_product){
       var req = {
         method: 'PATCH',
-        url: `/sub_products/${subProduct.id}`,
+        url: `/sub_products/${sub_product.id}`,
         headers: {
           'Content-Type': 'application/json'
         },
-        data: {subProduct}
+        data: {sub_product}
       }
       return $http(req).then(function(res){return res.data})
     };

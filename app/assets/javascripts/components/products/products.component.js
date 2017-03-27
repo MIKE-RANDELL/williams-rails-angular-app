@@ -5,11 +5,12 @@
   function ProductsController($state, ProductService, $scope){
     var ctrl = this;
 
-    this.addProductsDataService = addProductsDataService;
+    //this.addProductsDataService = addProductsDataService;
+    this.getProductsData = getProductsData;
     this.goToSelected = goToSelected;
 
-    ctrl.initResolvedProducts = ctrl.id;
-    ctrl.products = ctrl.initResolvedProducts;
+    //ctrl.initResolvedProducts = ctrl.id;
+    ctrl.products = getProductsData();
 
     $scope.$on('productsDataUpdate', function(){
       var newProduct = ProductService.handleGetNewProductData()
@@ -20,11 +21,15 @@
       $state.go('home.sub-products',{'id': params});
     };
 
-    function addProductsDataService(){
-      ProductService.handleInitProductsData(ctrl.initResolvedProducts)
-    };
+    function getProductsData(){
+      return ProductService.handleGetAllProductData()
+    }
 
-    addProductsDataService(); //intial setup of ProductService data handling
+    //function addProductsDataService(){
+    //  ProductService.handleInitProductsData(ctrl.initResolvedProducts)
+    //};
+
+    //addProductsDataService(); //intial setup of ProductService data handling
   }
 
   var Products = {
