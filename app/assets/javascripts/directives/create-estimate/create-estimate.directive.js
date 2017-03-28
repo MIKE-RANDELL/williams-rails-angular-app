@@ -14,13 +14,14 @@
       this.createEstimate = createEstimate;
       this.handleEstimateData = handleEstimateData;
       this.resetEstimateForm = resetEstimateForm;
+      this.cleanForm = cleanForm;
 
-      ctrl.name = "";
-      ctrl.phone = "";
-      ctrl.street_address = "";
-      ctrl.city = "";
-      ctrl.zipcode = "";
-      ctrl.details = "";
+      ctrl.name;
+      ctrl.phone;
+      ctrl.street_address;
+      ctrl.city;
+      ctrl.zipcode;
+      ctrl.details;
       ctrl.newEstimate = null;
 
       function createEstimate(){
@@ -41,8 +42,13 @@
       };
 
       function resetEstimateForm(){
-        ctrl.name = ctrl.phone = ctrl.street_address = ctrl.city = ctrl.zipcode = ctrl.details = "";
+        ctrl.name = ctrl.phone = ctrl.street_address = ctrl.city = ctrl.zipcode = ctrl.details = undefined;
         ctrl.newEstimate = null;
+      }
+
+      function cleanForm(form){
+        form.$setPristine();
+        form.$setUntouched();
       }
     }
   }

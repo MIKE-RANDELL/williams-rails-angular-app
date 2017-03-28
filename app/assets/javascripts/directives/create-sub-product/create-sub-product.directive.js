@@ -23,6 +23,7 @@
     this.createSubProduct = createSubProduct
     this.handleSubProductData = handleSubProductData;
     this.resetSubProductForm = resetSubProductForm;
+    this.cleanForm = cleanForm;
 
 
     function createSubProduct(){
@@ -46,6 +47,10 @@
       ctrl.newSubProduct = null;
     };
 
+    function cleanForm(form){
+      form.$setPristine();
+      form.$setUntouched();
+    }
   }
 
   angular

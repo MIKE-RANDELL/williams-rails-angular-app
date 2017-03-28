@@ -5,6 +5,7 @@
 //= require angular-devise
 //= require angular-rails-templates
 //= require angular-base64-upload
+//= require angular-messages
 //= require bootstrap-sass
 //= require moment
 //= require angular-filter

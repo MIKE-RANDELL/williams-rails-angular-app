@@ -22,6 +22,7 @@
     this.createProduct = createProduct;
     this.handleProductData = handleProductData;
     this.resetProductForm = resetProductForm;
+    this.cleanForm = cleanForm;
 
     function createProduct(){
       var data = {"name": ctrl.name, "description": ctrl.description, "picture": ctrl.picture};
@@ -43,6 +44,11 @@
       ctrl.picture = {};
       ctrl.newProduct = null;
     };
+
+    function cleanForm(form){
+      form.$setPristine();
+      form.$setUntouched();
+    }
   }
 
   angular
