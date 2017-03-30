@@ -1,8 +1,8 @@
 function estimatesCityFilter() {
 	return function (items, city) {
 		return items.filter(function(item){
-      return item.city == city
-    })
+  		return item.city == city
+  	})
 	};
 }
 

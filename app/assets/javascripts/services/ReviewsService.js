@@ -14,12 +14,13 @@
     this.data = [];
 
     function getReviews(){
-      return $http.get('/reviews').then(getReviewsCallback);
+      return $http.get('/reviews').then(getReviewsCallback)
+                                  .catch(function(error){console.log(error)});
 
       function getReviewsCallback(response){
         return response.data;
-      }
-    }
+      };
+    };
 
     function createReview(review){
       var req = {
@@ -29,26 +30,31 @@
           'Content-Type': 'application/json'
         },
         data: {review}
-      }
-      return $http(req).then(function(response){return response.data})
-    }
+      };
+      return $http(req).then(createReviewCallback)
+                       .catch(function(error){console.log(error)});
+
+      function createReviewCallback(response){
+        return response.data;
+      };
+    };
 
     function handleInitReviewsData(reviews){
       this.data = reviews;
-    }
+    };
 
     function handleNewReviewData(newReview){
       this.data.push(newReview);
       $rootScope.$emit('reviewsDataUpdate');
-    }
+    };
 
     function handleGetNewReviewData(){
       return this.data.last;
-    }
+    };
 
     function handleGetAllReviewsData(){
       return this.data;
-    }
+    };
   }
 
   angular

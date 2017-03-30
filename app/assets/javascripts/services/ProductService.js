@@ -20,12 +20,22 @@
           'Content-Type': 'application/json'
         },
         data: {product}
-      }
-      return $http(req).then(function(res){return res.data})
+      };
+      return $http(req).then(makeProductCallback)
+                       .catch(function(error){console.log(error)});
+
+      function makeProductCallback(response){
+        return response.data
+      };
     };
 
     function getProducts(){
-      return $http.get('/products').then(function(res){return res.data})
+      return $http.get('/products').then(getProductsCallback)
+                                   .catch(function(error){console.log(error)});
+
+      function getProductsCallback(response){
+        return response.data;
+      };
     };
 
     function handleInitProductsData(products){

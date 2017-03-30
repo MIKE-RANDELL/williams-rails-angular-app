@@ -13,11 +13,12 @@
     this.data = [];
 
     function getEstimates(){
-      return $http.get('/estimates').then(getEstimatesCallback);
+      return $http.get('/estimates').then(getEstimatesCallback)
+                                    .catch(function(error){console.log(error)});
 
       function getEstimatesCallback(response){
         return response.data;
-      }
+      };
     }
 
     function createEstimate(estimate){
@@ -28,8 +29,13 @@
           'Content-Type': 'application/json'
         },
         data: {estimate}
-      }
-      return $http(req).then(function(response){return response.data})
+      };
+      return $http(req).then(createEstimateCallback)
+                       .catch(function(error){console.log(error)});
+
+      function createEstimateCallback(response){
+        return response.data;
+      };
     }
 
     function handleInitEstimatesData(estimates){

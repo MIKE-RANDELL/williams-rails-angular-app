@@ -22,11 +22,21 @@
         },
         data: {sub_product}
       }
-      return $http(req).then(function(res){return res.data})
+      return $http(req).then(makeSubProductCallback)
+                       .catch(function(error){console.log(error)})
+
+      function makeSubProductCallback(response){
+        return response.data;
+      }
     };
 
     function getSubProducts(product_id){
-      return $http.get(`/product/${product_id}/sub_products`).then(function(res){return res.data});
+      return $http.get(`/product/${product_id}/sub_products`).then(getSubProductsCallback)
+                                                             .catch(function(error){console.log(error)})
+
+      function getSubProductsCallback(response){
+        return response.data;
+      }
     };
 
     function updateSubProduct(sub_product){
@@ -38,7 +48,12 @@
         },
         data: {sub_product}
       }
-      return $http(req).then(function(res){return res.data})
+      return $http(req).then(updateSubProductCallback)
+                       .catch(function(error){console.log(error)})
+
+      function updateSubProductCallback(response){
+        return response.data;
+      };
     };
 
     function handleInitSubProductsData(subProducts){

@@ -1,44 +1,34 @@
 <h1 class="text-center">Estimate Book</h1>
 <form class="form-padding">
   <div class="row">
-    <div class="col-xs-4 pull-right">
-      <select class="form-control" ng-model="ctrl.selectedCity" ng-change="ctrl.filterCheck()">
-        <option ng-selected="true" disabled selected>Filter by city..</option>
-        <option value="All">All Cities</option>
+    <div class="form-group col-xs-4 pull-left" ng-click="ctrl.searchOn()">
+      <input class="form-control" type="text" ng-model="ctrl.searchQuery" placeholder="Filter by detail.."></input>
+    </div>
+    <div class="form-group col-xs-4 pull-right" ng-click="ctrl.selectOn()">
+      <select class="form-control" ng-model="ctrl.selectedCity">
+        <option value="All" selected hidden>Filter by city..</option>
+        <option value="All">All cities</option>
         <option value="Wellington">Wellington</option>
         <option value="Lake worth">Lake Worth</option>
         <option value="West Palm Beach">West Palm Beach</option>
         <option value="Jupiter">Jupiter</option>
         <option value="Boca">Boca</option>
-        <option value="" selected hidden />
       </select>
     </div>
   </div>
 </form>
 
-<div ng-if="!ctrl.filter" ng-repeat="estimate in ctrl.estimates">
-  <ul>
-    <li>
-      {{estimate.created_at}}
-      <br>
-      {{estimate.name}} - {{estimate.phone}}
-      <br>
-      {{estimate.street_address}}, {{estimate.city}}, {{estimate.zipcode}}
-      <br>
-      {{estimate.details}}
-    </li>
-  </ul>
+<div ng-if="ctrl.selectActive">
+  <div ng-if="(ctrl.selectedCity === 'All')" ng-repeat="estimate in ctrl.estimates">
+    <estimate id="estimate"></estimate>
+  </div>
+  <div ng-if="(ctrl.selectedCity != 'All')" ng-repeat="estimate in ctrl.estimates | estimatesCityFilter: ctrl.selectedCity">
+    <estimate id="estimate"></estimate>
+  </div>
 </div>
-<div ng-if="ctrl.filter" ng-repeat="estimate in ctrl.estimates | estimatesCityFilter:ctrl.selectedCity">
-  <ul>
-    <li>
-      {{estimate.created_at}}
-      <br>
-      {{estimate.name}} - {{estimate.phone}}
-      <br>
-      {{estimate.street_address}}, {{estimate.city}}, {{estimate.zipcode}}
-      <br>
-      {{estimate.details}}
-    </li>
-  </ul>
+
+<div ng-if="ctrl.searchActive">
+  <div ng-repeat="estimate in ctrl.estimates | filter:ctrl.searchQuery">
+    <estimate id="estimate"></estimate>
+  </div>
 </div>

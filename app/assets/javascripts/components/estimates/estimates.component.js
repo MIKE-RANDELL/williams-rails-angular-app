@@ -5,13 +5,14 @@
   function EstimatesController(EstimatesService, $scope){
     var ctrl = this;
     this.getEstimatesData = getEstimatesData;
-    this.filterOn = filterOn;
-    this.filterOff = filterOff;
-    this.filterCheck = filterCheck;
+    this.searchOn = searchOn;
+    this.selectOn = selectOn;
 
     ctrl.estimates = getEstimatesData()
-    ctrl.selectedCity;
-    ctrl.filter = false;
+    ctrl.selectedCity = "All";
+    ctrl.searchQuery;
+    ctrl.searchActive = true;
+    ctrl.selectActive = false;
 
 
     $scope.$on('EstimatesDataUpdate', function(){
@@ -23,20 +24,15 @@
       return EstimatesService.handleGetAllEstimateData()
     };
 
-    function filterCheck(){
-      if (ctrl.selectedCity == "All"){
-        filterOff()
-      } else {
-        filterOn()
-      }
+    function searchOn(){
+      ctrl.selectActive = false;
+      ctrl.searchActive = true;
+      ctrl.selectedCity = "All";
     }
-
-    function filterOn(){
-      ctrl.filter = true;
-    }
-
-    function filterOff(){
-      ctrl.filter = false;
+    function selectOn(){
+      ctrl.searchActive = false;
+      ctrl.selectActive = true;
+      ctrl.searchQuery = "";
     }
   }
 
