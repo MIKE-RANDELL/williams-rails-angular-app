@@ -1,4 +1,61 @@
+/*
+.flex-row  {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.thumbnail {
+  background-color: #343434;
+}
+.card-format {
+    padding: 10px;
+	  font-family: 'Lato', sans-serif;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid transparent;
+	}
+*/
+.white-text {
+  color: #fff;
+}
+body.ng-scope {
+  background-color: #99CD4E;
+}
 
+.btn-default {
+  color: #343434;
+  background-color: #fff;
+  border-color: #343434;
+}
+
+a.btn.btn-primary {
+  color: #343434;
+  background-color: #fff;
+  border-color: #343434;
+}
+
+a.btn-primary:hover {
+  color: #343434;
+  //color: #fff;
+  background-color: #99CD4E;
+  border-color: #343434;
+}
+
+.card-format {
+		padding-top: 15px;
+	  font-family: 'Lato', sans-serif;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 10px solid transparent;
+	}
+/* make gutter sizes consistent */
+.flex-row  {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+div.thumbnail {
+  background-color: #dfeccb;
+}
 .form-notes{
   font-style: italic;
 }

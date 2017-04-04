@@ -1,6 +1,18 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Customer Reviews
+        <br><small class="text-info">Here are some of our customer reviews</small>
+      </h1>
+		</div>
+	</div>
+</div>
+<br>
+<div class="container">
 <div ng-repeat="reviewObj in ctrl.reviews">
   {{reviewObj.review}}
   <br>
   -{{reviewObj.name}}
   <br><br>
+</div>
 </div>

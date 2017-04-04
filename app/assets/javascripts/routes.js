@@ -8,7 +8,15 @@
         $stateProvider
           .state('home', {
             url: '/',
-            templateUrl: 'home/home.html',
+            views: {
+              '': {
+                templateUrl: 'home/home.html'
+              },
+              'homepage@home': {
+                template: '<h1>hello</h1>'
+              }
+            },
+            //templateUrl: 'home/home.html',
             controller: 'HomeController as vm'
           })
           .state('home.reviews', {
@@ -61,6 +69,7 @@
               }
             }
           })
+
 
           $urlRouterProvider.otherwise('/')
       }])

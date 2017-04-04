@@ -8,56 +8,36 @@
 	</div>
 </div>
 <br>
-
-<!--<div class="container">
-  <div ng-repeat="productSet in ctrl.chunkedData">
-	  <div class="row">
-      <div ng-repeat="product in productSet">
-	      <div class="col-xs-6 col-sm-4 col-lg-4">
-			    <div class="thumbnail">
-				    <img src="{{product.photo}}">
-				    <div class="caption">
-					    <h3>{{product.name}}</h2>
-					    <p class="flex-text text-muted">{{product.description}}</p>
-					    <p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product.id)">Link</a></p>
-				    </div>
-			    </div>
-		    </div>
-      </div>
-    </div>
-	</div>
-</div>-->
-
 <div class="container">
   <div ng-repeat="product in ctrl.products | chunkBy: 3">
 	  <div class="row">
-	    <div class="col-xs-6 col-sm-4 col-lg-4" ng-if="product[0]">
+	    <div class="card-format col-md-4" ng-if="product[0]">
 			  <div class="thumbnail">
 			    <img src="{{product[0].photo}}">
 			    <div class="caption">
 				    <h3>{{product[0].name}}</h2>
-				    <p class="flex-text text-muted">{{product[0].description}}</p>
-				    <p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">Link</a></p>
+				    <p class="flex-text">{{product[0].description}}</p>
+				    <p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">View products!</a></p>
 			    </div>
 			  </div>
 		  </div>
-			<div class="col-xs-6 col-sm-4 col-lg-4" ng-if="product[1]">
+			<div class="card-format col-md-4" ng-if="product[1]">
 				<div class="thumbnail">
 					<img src="{{product[1].photo}}">
 					<div class="caption">
 						<h3>{{product[1].name}}</h2>
-						<p class="flex-text text-muted">{{product[1].description}}</p>
-						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[1].id)">Link</a></p>
+						<p class="flex-text">{{product[1].description}}</p>
+						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[1].id)">View Products!</a></p>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-4 col-lg-4" ng-if="product[2]">
+			<div class="card-format col-md-4" ng-if="product[2]">
 				<div class="thumbnail">
 					<img src="{{product[2].photo}}">
 					<div class="caption">
 						<h3>{{product[2].name}}</h2>
-						<p class="flex-text text-muted">{{product[2].description}}</p>
-						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">Link</a></p>
+						<p class="flex-text">{{product[2].description}}</p>
+						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">View Products!</a></p>
 					</div>
 				</div>
 			</div>
@@ -66,20 +46,8 @@
 </div>
 
 
-
-
+<!--"card-format col-xs-4 col-sm-4 col-lg-4"-->
 
 
 
 <style type="text/css">
-body {
-		background-color: rgba(0, 0, 0, 0.03);
-		padding-top: 15px;
-	  font-family: 'Lato', sans-serif;
-	}
-
-/* make gutter sizes consistent */
-.flex-row  {
-    padding-left: 15px;
-    padding-right: 15px;
-}

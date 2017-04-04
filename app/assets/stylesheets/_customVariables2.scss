@@ -19,7 +19,8 @@ $gray:                   #95a5a6 !default; // #555
 $gray-light:             #b4bcc2 !default;   // #999
 $gray-lighter:           #ecf0f1 !default; // #eee
 
-$brand-primary:         #2C3E50 !default;
+//$brand-primary:         #2C3E50 !default;
+$brand-primary:         #DFECCB !default;
 $brand-success:         #18BC9C !default;
 $brand-info:            #3498DB !default;
 $brand-warning:         #F39C12 !default;
@@ -31,9 +32,11 @@ $brand-danger:          #E74C3C !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff !default;
+//$body-bg:               #fff !default;
+$body-bg:               #99CD4E !default;
 //** Global text color on `<body>`.
-$text-color:            $brand-primary !default;
+//$text-color:            $brand-primary !default;
+$text-color:            #343434 !default;
 
 //** Global textual link color.
 $link-color:            $brand-success !default;
@@ -149,13 +152,17 @@ $table-border-color:            $gray-lighter !default;
 
 $btn-font-weight:                normal !default;
 
-$btn-default-color:              #fff !default;
-$btn-default-bg:                 $gray !default;
-$btn-default-border:             $btn-default-bg !default;
+//$btn-default-color:              #343434 !default;
+//$btn-default-bg:                 $gray !default;
+//$btn-default-border:             $btn-default-bg !default;
 
-$btn-primary-color:              $btn-default-color !default;
-$btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             $btn-primary-bg !default;
+$btn-default-color:              #343434 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #343434 !default;
+
+$btn-primary-color:              #343434 !default;
+$btn-primary-bg:                 #fff !default;
+$btn-primary-border:             #343434 !default;
 
 $btn-success-color:              $btn-default-color !default;
 $btn-success-bg:                 $brand-success !default;
@@ -369,16 +376,18 @@ $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       340px !default;
 
-$navbar-default-color:             #fff !default;
+//$navbar-default-color:             #fff !default;
+$navbar-default-color:             #343434 !default;
 $navbar-default-bg:                $brand-primary !default;
 $navbar-default-border:            transparent !default;
 
 // Navbar links
-$navbar-default-link-color:                #fff !default;
-$navbar-default-link-hover-color:          $brand-success !default;
+$navbar-default-link-color:                #343434 !default;
+$navbar-default-link-hover-color:          #99CD4E !default;
 $navbar-default-link-hover-bg:             transparent !default;
-$navbar-default-link-active-color:         #fff !default;
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 10%) !default;
+$navbar-default-link-active-color:         #343434 !default;
+$navbar-default-link-active-bg:            #99CD4E !default;
+//$navbar-default-link-active-bg:            darken($navbar-default-bg, 50%) !default;
 $navbar-default-link-disabled-color:       #ccc !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
@@ -765,7 +774,8 @@ $thumbnail-caption-padding:   9px !default;
 //
 //##
 
-$well-bg:                     $gray-lighter !default;
+//$well-bg:                     $gray-lighter !default;
+$well-bg:                     #343434 !default;
 $well-border:                 transparent !default;
 
 

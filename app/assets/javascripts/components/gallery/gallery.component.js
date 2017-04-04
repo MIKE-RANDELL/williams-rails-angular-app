@@ -4,12 +4,11 @@
 
   function GalleryController(){
     var ctrl = this;
+
     this.$onInit = () => {
       ctrl.pictureObjArr = this.id
       this.setPictureObjArr()
     }
-    //ctrl.pictureObjArr = ctrl.id;
-
 
     ctrl.organizedPictureObjArr = [];
 
@@ -24,12 +23,8 @@
         ctrl.organizedPictureObjArr.push(ctrl.pictureObjArr.slice(ctrl.startIdx, ctrl.endIdx))
         ctrl.startIdx += 2;
         ctrl.endIdx += 2;
-        //debugger;
       }
     }
-    //if(ctrl.pictureObjArr){
-    //  this.setPictureObjArr()
-    //}
   }
 
   var Gallery = {
