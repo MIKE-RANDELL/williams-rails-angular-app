@@ -9,7 +9,7 @@
 </div>
 <br>
 <div class="container">
-  <div ng-repeat="product in ctrl.products | chunkBy: 3">
+  <div ng-repeat="product in ctrl.products | chunkBy: 3 track by $index">
 	  <div class="row">
 	    <div class="card-format col-md-4" ng-if="product[0]">
 			  <div class="thumbnail">

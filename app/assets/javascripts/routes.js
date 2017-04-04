@@ -10,17 +10,16 @@
             url: '/',
             views: {
               '': {
-                templateUrl: 'home/home.html'
+                templateUrl: 'home/home.html' //WAS MESSING WITH ROUTES, SO JUST LEAVING THESE MULTIPLE NAMED VIEWS
               },
               'homepage@home': {
-                template: '<h1>hello</h1>'
+                templateUrl: 'home/homepage.html' //FOR EXAMPLES
               }
             },
-            //templateUrl: 'home/home.html',
             controller: 'HomeController as vm'
           })
-          .state('home.reviews', {
-            url: 'reviews',
+          .state('reviews', {
+            url: '/reviews',
             templateUrl: 'reviews/reviews.html',
             controller: 'ReviewsController as vm',
             resolve: {
@@ -29,8 +28,8 @@
               }
             }
           })
-          .state('home.gallery', {
-            url: 'gallery',
+          .state('gallery', {
+            url: '/gallery',
             templateUrl: 'gallery/gallery.html',
             controller: 'GalleryController as vm',
             resolve: {
@@ -39,8 +38,8 @@
               }
             }
           })
-          .state('home.products', {
-            url: 'products',
+          .state('products', {
+            url: '/products',
             controller: 'ProductsController as vm',
             templateUrl: 'products/products.html',
             resolve: {
@@ -49,8 +48,8 @@
               }
             }
           })
-          .state('home.sub-products', { //had home.sub-products
-            url: 'product/:id/sub-products',
+          .state('sub-products', {
+            url: '/product/:id/sub-products',
             controller: 'SubProductsController as vm',
             templateUrl: 'sub-products/sub-products.html',
             resolve: {                                                   //dependencies needed to be in order
@@ -59,8 +58,8 @@
               }]
             }
           })
-          .state('home.estimates', {
-            url: 'estimates',
+          .state('estimates', {
+            url: '/estimates',
             controller: 'EstimatesController as vm',
             templateUrl: 'estimates/estimates.html',
             resolve: {
@@ -69,8 +68,6 @@
               }
             }
           })
-
-
           $urlRouterProvider.otherwise('/')
       }])
 

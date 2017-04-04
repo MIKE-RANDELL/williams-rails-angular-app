@@ -19,16 +19,16 @@
 </form>
 
 <div ng-if="ctrl.selectActive">
-  <div ng-if="(ctrl.selectedCity === 'All')" ng-repeat="estimate in ctrl.estimates">
+  <div ng-if="(ctrl.selectedCity === 'All')" ng-repeat="estimate in ctrl.estimates track by $index">
     <estimate id="estimate"></estimate>
   </div>
-  <div ng-if="(ctrl.selectedCity != 'All')" ng-repeat="estimate in ctrl.estimates | estimatesCityFilter: ctrl.selectedCity">
+  <div ng-if="(ctrl.selectedCity != 'All')" ng-repeat="estimate in ctrl.estimates | estimatesCityFilter: ctrl.selectedCity track by $index">
     <estimate id="estimate"></estimate>
   </div>
 </div>
 
 <div ng-if="ctrl.searchActive">
-  <div ng-repeat="estimate in ctrl.estimates | filter:ctrl.searchQuery">
+  <div ng-repeat="estimate in ctrl.estimates | filter:ctrl.searchQuery track by $index">
     <estimate id="estimate"></estimate>
   </div>
 </div>

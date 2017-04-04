@@ -1,6 +1,10 @@
+<div class="alert alert-success" ng-if="form.$submitted">
+  <strong>Success!</strong> You are scheduled for an estimate. We will be in touch soon!
+</div>
+<br>
 <h1>Fill out this form to set up an estimate!</h1>
 <form class="form-padding" ng-submit="ctrl.createEstimate()" name="form">
-  <div class="form-group"> 
+  <div class="form-group">
 		<label class="control-label">Full Name</label>
 		<input type="text" name="name" required="required" class="form-control" ng-model="ctrl.name" placeholder="Full Name">
     <div class="form-errors" ng-messages="form.name.$error" ng-if="form.name.$touched">
@@ -52,9 +56,5 @@
   <textarea rows="3" class="form-control" ng-model="ctrl.details" placeholder="Enter the details for your estimate here.."></textarea>
   <br>
 
-  <div class="alert alert-success" ng-if="form.$submitted">
-    <strong>Success!</strong> You are scheduled for an estimate. We will be in touch soon!
-  </div>
-  <br>
 	<button type="submit" ng-click="ctrl.cleanForm(form)" class="btn btn-primary">Setup Estimate</button>
 </form>

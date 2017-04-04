@@ -9,10 +9,10 @@
 </div>
 <br>
 <div class="container">
-<div ng-repeat="reviewObj in ctrl.reviews">
-  {{reviewObj.review}}
-  <br>
-  -{{reviewObj.name}}
-  <br><br>
-</div>
+	<div ng-repeat="reviewObj in ctrl.reviews track by $index">
+  	{{reviewObj.review}}
+  	<br>
+  	-{{reviewObj.name}}
+  	<br><br>
+	</div>
 </div>

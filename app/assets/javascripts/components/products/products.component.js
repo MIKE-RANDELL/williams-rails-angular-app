@@ -16,7 +16,7 @@
     });
 
     function goToSelected(params){
-      $state.go('home.sub-products',{'id': params});
+      $state.go('sub-products',{'id': params});
     };
 
     function getProductsData(){

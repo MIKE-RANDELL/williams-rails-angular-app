@@ -8,7 +8,8 @@ class SubProductsController < ApplicationController
   def show_sub_products
     product = Product.find(params[:id])
     @sub_products = product.sub_products
-    render json: @sub_products
+    ordered_sub_products = @sub_products.order(:created_at) #to keep original order when a sub product is updated
+    render json: ordered_sub_products
   end
 
   def create

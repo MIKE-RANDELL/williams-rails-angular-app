@@ -1,4 +1,4 @@
-<div ng-repeat="pictureObjs in ctrl.organizedPictureObjArr">
+<div ng-repeat="pictureObjs in ctrl.organizedPictureObjArr track by $index">
   <div class="row">
     <div class="col-md-6" ng-if="pictureObjs[0]">
       <div class="well">
