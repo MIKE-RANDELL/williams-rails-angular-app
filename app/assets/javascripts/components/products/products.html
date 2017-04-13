@@ -12,15 +12,27 @@
   <div ng-repeat="product in ctrl.products | chunkBy: 3 track by $index">
 	  <div class="row">
 	    <div class="card-format col-md-4" ng-if="product[0]">
-			  <div class="thumbnail">
-			    <img src="{{product[0].photo}}">
-			    <div class="caption">
-				    <h3>{{product[0].name}}</h2>
-				    <p class="flex-text">{{product[0].description}}</p>
-				    <p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">View products!</a></p>
-			    </div>
-			  </div>
-		  </div>
+				<div class="thumbnail">
+					<img src="{{product[0].photo}}">
+					<div class="caption">
+			  		<b><h3>{{product[0].name}}</h2></b>
+			  		<p class="flex-text">{{product[0].description}}</p>
+			  		<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">View products!</a></p>
+
+						<div ng-class="{'highlighted': product[0].highlight}">
+							<!--<button type="button" ng-click="ctrl.highlightProductSetter(product[0])">HIGHLIGHT PRODUCT</button>-->
+							<form ng-submit="ctrl.highlightProductSetter(product[0])">
+								<input type="text" ng-model="product[0].start_date"></input>
+								<input type="text" ng-model="product[0].end_date"></input>
+								<input type="submit"></input>
+							</form>
+						</div>
+            <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[0].id, product[0].name)" ng-href="https://twitter.com/intent/tweet?text={{product[0].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
+              Tweet
+            </a>
+					</div>
+				</div>
+			</div>
 			<div class="card-format col-md-4" ng-if="product[1]">
 				<div class="thumbnail">
 					<img src="{{product[1].photo}}">
@@ -28,6 +40,18 @@
 						<h3>{{product[1].name}}</h2>
 						<p class="flex-text">{{product[1].description}}</p>
 						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[1].id)">View Products!</a></p>
+
+						<div ng-class="{'highlighted': product[1].highlight}">
+							<!--<button type="button" ng-click="ctrl.highlightProductSetter(product[1])">HIGHLIGHT PRODUCT</button>-->
+							<form ng-submit="ctrl.highlightProductSetter(product[1])">
+								<input type="text" ng-model="product[1].start_date"></input>
+								<input type="text" ng-model="product[1].end_date"></input>
+								<input type="submit"></input>
+							</form>
+						</div>
+            <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[1].id, product[1].name)" ng-href="https://twitter.com/intent/tweet?text={{product[1].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
+              Tweet
+            </a>
 					</div>
 				</div>
 			</div>
@@ -36,8 +60,20 @@
 					<img src="{{product[2].photo}}">
 					<div class="caption">
 						<h3>{{product[2].name}}</h2>
-						<p class="flex-text">{{product[2].description}}</p>
-						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">View Products!</a></p>
+							<p class="flex-text">{{product[2].description}}</p>
+							<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">View Products!</a></p>
+
+							<div ng-class="{'highlighted': product[2].highlight}">
+								<!--<button type="button" ng-click="ctrl.highlightProductSetter(product[2])">HIGHLIGHT PRODUCT</button>-->
+								<form ng-submit="ctrl.highlightProductSetter(product[2])">
+									<input type="text" ng-model="product[2].start_date"></input>
+									<input type="text" ng-model="product[2].end_date"></input>
+									<input type="submit"></input>
+								</form>
+							</div>
+              <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[2].id, product[2].name)" ng-href="https://twitter.com/intent/tweet?text={{product[2].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
+                Tweet
+              </a>
 					</div>
 				</div>
 			</div>
@@ -46,7 +82,7 @@
 </div>
 
 
-<!--"card-format col-xs-4 col-sm-4 col-lg-4"-->
+
 
 
 

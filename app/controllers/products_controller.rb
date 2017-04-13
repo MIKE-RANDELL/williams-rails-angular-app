@@ -4,13 +4,25 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    render json: @products
+
+    @products.each do |product|
+      if product.active_highlight?
+        product.highlight = true
+        product.save
+      else
+        product.highlight = false
+        product.save
+      end
+    end
+
+    ordered_products = @products.order(:created_at)
+    render json: ordered_products
   end
 
   def create
     @product = Product.new(product_params)
     @product.photo = decode_base64
-    @product.save                  
+    @product.save
     render json: @product
   end
 
@@ -39,6 +51,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description)
+    params.require(:product).permit(:id, :name, :highlight, :start_date, :end_date)
   end
 end

@@ -1,0 +1,5 @@
+  MOST TWEETED PRODUCT: {{vm.topProductTweeted}}
+<div ng-repeat="tweet in vm.tweets | orderBy: 'product.id'">
+  <br><br><br>
+  <li>{{tweet}}</li>
+</div>

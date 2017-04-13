@@ -18,6 +18,10 @@
   color: #343434;
 }
 
+.custom-red {
+  color: #00FFFF;
+}
+
 body.ng-scope {
   padding-top:0px;
   margin-top: 0px;
@@ -54,6 +58,10 @@ a.btn-primary:hover {
 .flex-row  {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.highlighted {
+  color: #ff0000;
 }
 
 div.thumbnail {

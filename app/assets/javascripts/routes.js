@@ -68,6 +68,16 @@
               }
             }
           })
+          .state('tweets', {
+            url: '/tweets',
+            controller: 'TweetsController as vm',
+            templateUrl: 'tweets/tweets.html',
+            resolve: {
+              tweetsSet: function(TweetsService){
+                return TweetsService.getTweets().then(function(response){return response})
+              }
+            }
+          })
           $urlRouterProvider.otherwise('/')
       }])
 
