@@ -2,8 +2,9 @@
   "vendor": {
     "name": "bower-rails-generated-vendor-assets",
     "dependencies": {
-      "angular":"v1.6.3",
-      "angular-devise": "latest",
+      "angular":"v1.6.4",
+      "ng-token-auth": "latest",
+      "angular-cookie": "latest",
       "angular-ui-router": "latest",
       "angular-base64-upload": "latest",
       "moment": "latest",

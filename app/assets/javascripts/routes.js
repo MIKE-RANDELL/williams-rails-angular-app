@@ -73,10 +73,18 @@
             controller: 'TweetsController as vm',
             templateUrl: 'tweets/tweets.html',
             resolve: {
+              auth: ['$auth', function($auth) {
+                return $auth.validateUser();
+              }],
               tweetsSet: function(TweetsService){
                 return TweetsService.getTweets().then(function(response){return response})
               }
             }
+          })
+          .state('login', {
+            url: '/login',
+            controller: 'UserController as vm',
+            templateUrl: 'user/user.html'
           })
           $urlRouterProvider.otherwise('/')
       }])

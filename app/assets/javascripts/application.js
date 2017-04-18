@@ -1,8 +1,9 @@
 //= require jquery
 //= require angular
 //= require ng-rails-csrf
+//= require ng-token-auth
+//= require angular-cookie
 //= require angular-ui-router
-//= require angular-devise
 //= require angular-rails-templates
 //= require angular-base64-upload
 //= require angular-messages

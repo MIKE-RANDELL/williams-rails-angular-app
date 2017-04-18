@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ActionController::MimeResponds
+  include DeviseTokenAuth::Concerns::SetUserByToken
   protect_from_forgery with: :exception
   respond_to :json
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -7,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def index
-    
+
   end
 
   def configure_permitted_parameters
