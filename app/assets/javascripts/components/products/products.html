@@ -9,18 +9,21 @@
 </div>
 <br>
 <div class="container">
+	{{user}}
   <div ng-repeat="product in ctrl.products | chunkBy: 3 track by $index">
 	  <div class="row">
 	    <div class="card-format col-md-4" ng-if="product[0]">
 				<div class="thumbnail">
 					<img src="{{product[0].photo}}">
 					<div class="caption">
-			  		<b><h3>{{product[0].name}}</h2></b>
+						<h2>{{product[0].name}}</h2>
+						<div ng-show="product[0].highlight" ng-class="{'highlighted': product[0].highlight}">
+							<h5>Big sale! (to add date formatting)</h5>
+						</div>
 			  		<p class="flex-text">{{product[0].description}}</p>
 			  		<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">View products!</a></p>
 
-						<div ng-class="{'highlighted': product[0].highlight}">
-							<!--<button type="button" ng-click="ctrl.highlightProductSetter(product[0])">HIGHLIGHT PRODUCT</button>-->
+						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[0].highlight}">
 							<form ng-submit="ctrl.highlightProductSetter(product[0])">
 								<input type="text" ng-model="product[0].start_date"></input>
 								<input type="text" ng-model="product[0].end_date"></input>
@@ -37,12 +40,14 @@
 				<div class="thumbnail">
 					<img src="{{product[1].photo}}">
 					<div class="caption">
-						<h3>{{product[1].name}}</h2>
+						<h2>{{product[1].name}}</h2>
+						<div ng-show="product[1].highlight" ng-class="{'highlighted': product[1].highlight}">
+							<h5>Big sale! (to add date formatting)</h5>
+						</div>
 						<p class="flex-text">{{product[1].description}}</p>
 						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[1].id)">View Products!</a></p>
 
-						<div ng-class="{'highlighted': product[1].highlight}">
-							<!--<button type="button" ng-click="ctrl.highlightProductSetter(product[1])">HIGHLIGHT PRODUCT</button>-->
+						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[1].highlight}">
 							<form ng-submit="ctrl.highlightProductSetter(product[1])">
 								<input type="text" ng-model="product[1].start_date"></input>
 								<input type="text" ng-model="product[1].end_date"></input>
@@ -59,21 +64,23 @@
 				<div class="thumbnail">
 					<img src="{{product[2].photo}}">
 					<div class="caption">
-						<h3>{{product[2].name}}</h2>
-							<p class="flex-text">{{product[2].description}}</p>
-							<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">View Products!</a></p>
+						<h2>{{product[2].name}}</h2>
+						<div ng-show="product[2].highlight" ng-class="{'highlighted': product[2].highlight}">
+							<h5>Big sale! (to add date formatting)</h5>
+						</div>
+						<p class="flex-text">{{product[2].description}}</p>
+						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">View Products!</a></p>
 
-							<div ng-class="{'highlighted': product[2].highlight}">
-								<!--<button type="button" ng-click="ctrl.highlightProductSetter(product[2])">HIGHLIGHT PRODUCT</button>-->
-								<form ng-submit="ctrl.highlightProductSetter(product[2])">
-									<input type="text" ng-model="product[2].start_date"></input>
-									<input type="text" ng-model="product[2].end_date"></input>
-									<input type="submit"></input>
-								</form>
-							</div>
-              <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[2].id, product[2].name)" ng-href="https://twitter.com/intent/tweet?text={{product[2].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
-                Tweet
-              </a>
+						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[2].highlight}">
+							<form ng-submit="ctrl.highlightProductSetter(product[2])">
+								<input type="text" ng-model="product[2].start_date"></input>
+								<input type="text" ng-model="product[2].end_date"></input>
+								<input type="submit"></input>
+							</form>
+						</div>
+            <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[2].id, product[2].name)" ng-href="https://twitter.com/intent/tweet?text={{product[2].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
+              Tweet
+            </a>
 					</div>
 				</div>
 			</div>

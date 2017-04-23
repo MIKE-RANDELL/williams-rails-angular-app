@@ -5,6 +5,10 @@
   function ProductsController($state, ProductService, $scope){
     var ctrl = this;
 
+    this.$onInit = () => {
+      ctrl.loggedIn = this.id
+    }
+
     this.getProductsData = getProductsData;
     this.goToSelected = goToSelected;
     this.makeImportant = makeImportant;
@@ -58,7 +62,10 @@
   var Products = {
     templateUrl: 'components/products/products.html',
     controller: ProductsController,
-    controllerAs: 'ctrl'
+    controllerAs: 'ctrl',
+    bindings: {
+      id:'='
+    }
   }
 
   angular

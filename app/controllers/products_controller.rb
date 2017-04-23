@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
     @product = Product.new(product_params)
     @product.photo = decode_base64
     @product.save
@@ -51,6 +52,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:id, :name, :highlight, :start_date, :end_date)
+    params.require(:product).permit(:id, :name, :description, :start_date, :end_date)
   end
 end
