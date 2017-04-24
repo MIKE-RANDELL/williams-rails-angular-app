@@ -72,6 +72,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.6)
@@ -199,6 +201,7 @@ DEPENDENCIES
   byebug
   devise
   devise_token_auth
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

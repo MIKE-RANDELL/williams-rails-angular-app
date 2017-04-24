@@ -2,18 +2,18 @@
 <form name="form" ng-submit="ctrl.createSubProduct()">
   <div class="form-group half">
 	  <label for="name" class="control-label">Name:</label>
-	  <input required="required" ng-model="ctrl.name" class="form-control" name="name" placeholder="Sub Product name">
+	  <input required="required" ng-maxlength="20" ng-model="ctrl.name" class="form-control" name="name" placeholder="Sub Product name">
     <div class="form-errors" ng-messages="form.name.$error" ng-if="form.name.$touched">
       <div ng-message="required">We need an item name!</div>
+      <div ng-message="maxlength">Too much text! Make name more compact!</div>
     </div>
   </div>
   <div class="form-group">
 	  <label class="control-label" for="description">Description</label>
 		<textarea required="required" ng-model="ctrl.description" class="form-control" name="description"
-              ng-minlength="47" ng-maxlength="89" rows="3"  placeholder="Write a sub product desciption"></textarea>
+              ng-maxlength="38" rows="2"  placeholder="Write a sub product desciption"></textarea>
     <div class="form-errors" ng-messages="form.description.$error" ng-if="form.description.$touched">
       <div ng-message="required">We need a product description!</div>
-      <div ng-message="minlength">Please add some more details!</div>
       <div ng-message="maxlength">Too much text! Make details more compact!</div>
     </div>
   </div>

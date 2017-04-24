@@ -5,6 +5,10 @@
   function SubProductsController($state, SubProductService, $scope){
     var ctrl = this;
 
+    this.$onInit = () => {
+      ctrl.loggedIn = this.id
+    }
+
     this.getSubProductsData = getSubProductsData;
     this.setEditMode = setEditMode;
     this.onEditMode = onEditMode;
@@ -41,7 +45,10 @@
   var subProducts = {
     templateUrl: 'components/sub-products/sub-products.html',
     controller: SubProductsController,
-    controllerAs: 'ctrl'
+    controllerAs: 'ctrl',
+    bindings: {
+      id: '='
+    }
   }
 
   angular

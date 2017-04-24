@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth'
 
 gem 'devise_token_auth'
+
+gem 'font-awesome-sass'
+
 #gem 'mini_magick'
 
 gem 'paperclip'

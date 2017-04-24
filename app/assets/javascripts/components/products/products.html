@@ -9,7 +9,6 @@
 </div>
 <br>
 <div class="container">
-	{{user}}
   <div ng-repeat="product in ctrl.products | chunkBy: 3 track by $index">
 	  <div class="row">
 	    <div class="card-format col-md-4" ng-if="product[0]">
@@ -18,7 +17,7 @@
 					<div class="caption">
 						<h2>{{product[0].name}}</h2>
 						<div ng-show="product[0].highlight" ng-class="{'highlighted': product[0].highlight}">
-							<h5>Big sale! (to add date formatting)</h5>
+							<h5>Big sale!!!</h5>
 						</div>
 			  		<p class="flex-text">{{product[0].description}}</p>
 			  		<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">View products!</a></p>
@@ -31,7 +30,7 @@
 							</form>
 						</div>
             <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[0].id, product[0].name)" ng-href="https://twitter.com/intent/tweet?text={{product[0].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
-              Tweet
+              <i class="fa fa-twitter tweet-float"></i></i>
             </a>
 					</div>
 				</div>
@@ -42,7 +41,7 @@
 					<div class="caption">
 						<h2>{{product[1].name}}</h2>
 						<div ng-show="product[1].highlight" ng-class="{'highlighted': product[1].highlight}">
-							<h5>Big sale! (to add date formatting)</h5>
+							<h5>Big sale!!!</h5>
 						</div>
 						<p class="flex-text">{{product[1].description}}</p>
 						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[1].id)">View Products!</a></p>
@@ -55,7 +54,7 @@
 							</form>
 						</div>
             <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[1].id, product[1].name)" ng-href="https://twitter.com/intent/tweet?text={{product[1].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
-              Tweet
+              <i class="fa fa-twitter tweet-float"></i></i>
             </a>
 					</div>
 				</div>
@@ -66,7 +65,7 @@
 					<div class="caption">
 						<h2>{{product[2].name}}</h2>
 						<div ng-show="product[2].highlight" ng-class="{'highlighted': product[2].highlight}">
-							<h5>Big sale! (to add date formatting)</h5>
+							<h5>Big sale!!!</h5>
 						</div>
 						<p class="flex-text">{{product[2].description}}</p>
 						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">View Products!</a></p>
@@ -79,7 +78,7 @@
 							</form>
 						</div>
             <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[2].id, product[2].name)" ng-href="https://twitter.com/intent/tweet?text={{product[2].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
-              Tweet
+              <i class="fa fa-twitter tweet-float"></i></i>
             </a>
 					</div>
 				</div>

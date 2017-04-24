@@ -19,8 +19,6 @@
 
     ctrl.products = getProductsData();
 
-    //ctrl.activeHighlightProduct = ProductService.getHighlightProduct(); //to store active Highlighted Product
-
     $scope.$on('productsDataUpdate', function(){
       var newProduct = ProductService.handleGetNewProductData()
       ctrl.products.push(newProduct)
@@ -41,14 +39,6 @@
     function highlightProductSetter(product){
       return ProductService.setHighlightProduct(product);
     }
-
-    //function highlightProductSetter(product){
-    //  if (ctrl.activeHighlightProduct !== null){
-    //    highlightProductRemover(ctrl.activeHighlightProduct)
-    //  }
-    //  ctrl.activeHighlightProduct = product;
-    //  return ProductService.setHighlightProduct(product);
-    //}
 
     function highlightProductRemover(product){
       return ProductService.removeHighlightProduct(product)

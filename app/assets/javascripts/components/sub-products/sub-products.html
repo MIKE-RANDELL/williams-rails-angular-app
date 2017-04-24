@@ -14,8 +14,10 @@
 				      <h3>{{subProduct[0].name}}</h2>
 				      <p class="text-muted">{{subProduct[0].description}}</p>
               <p class="text-muted">{{subProduct[0].price}}</p>
-              <button type="button" ng-click="ctrl.onEditMode(subProduct[0])" class="btn btn-default btn-sm">EDIT</button>
-				    </div>
+              <div ng-show="ctrl.loggedIn">
+                <button type="button" ng-click="ctrl.onEditMode(subProduct[0])" class="btn btn-default btn-sm">EDIT</button>
+              </div>
+            </div>
           </div>
 			  </div>
       </div>
@@ -32,7 +34,9 @@
               <h3>{{subProduct[1].name}}</h2>
               <p class="text-muted">{{subProduct[1].description}}</p>
               <p class="text-muted">{{subProduct[1].price}}</p>
-              <button type="button" ng-click="ctrl.onEditMode(subProduct[1])" class="btn btn-default btn-sm">EDIT</button>
+              <div ng-show="ctrl.loggedIn">
+                <button type="button" ng-click="ctrl.onEditMode(subProduct[1])" class="btn btn-default btn-sm">EDIT</button>
+              </div>
             </div>
           </div>
         </div>
@@ -50,7 +54,9 @@
               <h3>{{subProduct[2].name}}</h2>
               <p class="text-muted">{{subProduct[2].description}}</p>
               <p class="text-muted">{{subProduct[2].price}}</p>
-              <button type="button" ng-click="ctrl.onEditMode(subProduct[2])" class="btn btn-default btn-sm">EDIT</button>
+              <div ng-show="ctrl.loggedIn">
+                <button type="button" ng-click="ctrl.onEditMode(subProduct[2])" class="btn btn-default btn-sm">EDIT</button>
+              </div>
             </div>
           </div>
         </div>
@@ -58,16 +64,3 @@
     </div>
 	</div>
 </div>
-
-<style type="text/css">
-body {
-		background-color: rgba(0, 0, 0, 0.03);
-		padding-top: 15px;
-	  font-family: 'Lato', sans-serif;
-	}
-
-/* make gutter sizes consistent */
-.flex-row  {
-    padding-left: 15px;
-    padding-right: 15px;
-}

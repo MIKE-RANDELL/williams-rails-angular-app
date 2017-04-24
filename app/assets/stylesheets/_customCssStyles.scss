@@ -14,6 +14,30 @@
     border-bottom: 10px solid transparent;
 	}
 */
+.flex-row  {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tweet-float {
+  float:right;
+}
+.icon-background {
+  
+  background-color:  #dfeccb;
+}
+
+.centerBlock {
+  display: table;
+  margin: auto;
+  vertical-align: center;
+}
+
+.angies-list-widget {
+  height: 200px;
+  width: 400px;
+}
+
 .navbar-brand {
   text-align: center;
   position: relative;
@@ -41,8 +65,8 @@ nav {
 }
 
 .text-close-1 {
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding-bottom: -31px;
+  margin-bottom: -31px;
 }
 
 .text-close-2 {
@@ -50,8 +74,13 @@ nav {
   margin-top: 0px;
 }
 
-.white-text {
-  color: #343434;
+.carousel-indicators {
+  padding-bottom: -20px;
+  margin-bottom: -20px;
+}
+
+.grey-white-text {
+  color: #ededed;
 }
 
 .custom-red {
