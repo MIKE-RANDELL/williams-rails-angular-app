@@ -1,0 +1,18 @@
+<div ng-repeat="pictureObjs in ctrl.organizedPictureObjArr track by $index">
+  <div class="row">
+    <div class="col-md-6" ng-if="pictureObjs[0]">
+      <div class="well">
+        <img class="thumbnail img-responsive center-block" alt="Bootstrap template" ng-if="pictureObjs[0]"
+             src="{{pictureObjs[0].photo}}" />
+        <div class="text-center white-text">{{pictureObjs[0].title}}</div>
+      </div>
+    </div>
+    <div class="col-md-6" ng-if="pictureObjs[1]">
+      <div class="well">
+        <img class="thumbnail img-responsive center-block" alt="Bootstrap template" ng-if="pictureObjs[1]"
+             src="{{pictureObjs[1].photo}}" />
+        <div class="text-center white-text">{{pictureObjs[1].title}}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container">
+  <div ng-repeat="subProduct in ctrl.subProducts | chunkBy: 3 track by $index">
+	  <div class="row">
+	    <div class="card-format col-md-4" ng-if="subProduct[0]">
+			  <div class="thumbnail">
+				  <img src="{{subProduct[0].photo}}">
+          <div ng-if="subProduct[0].editMode">
+            <div class="caption panel-body">
+              <edit-sub-product id="subProduct[0]" edit-off-fn="ctrl.offEditMode"></edit-sub-product>
+            </div>
+          </div>
+          <div ng-if="subProduct[0].editMode == false">
+				    <div class="caption panel-body">
+				      <h3>{{subProduct[0].name}}</h2>
+				      <p class="text-muted">{{subProduct[0].description}}</p>
+              <p class="text-muted">{{subProduct[0].price}}</p>
+              <div ng-show="ctrl.loggedIn">
+                <button type="button" ng-click="ctrl.onEditMode(subProduct[0])" class="btn btn-default btn-sm">EDIT</button>
+              </div>
+            </div>
+          </div>
+			  </div>
+      </div>
+      <div class="card-format col-md-4" ng-if="subProduct[1]">
+        <div class="thumbnail">
+          <img src="{{subProduct[1].photo}}">
+          <div ng-if="subProduct[1].editMode">
+            <div class="caption panel-body">
+              <edit-sub-product id="subProduct[1]" edit-off-fn="ctrl.offEditMode"></edit-sub-product>
+            </div>
+          </div>
+          <div ng-if="subProduct[1].editMode == false">
+            <div class="caption panel-body">
+              <h3>{{subProduct[1].name}}</h2>
+              <p class="text-muted">{{subProduct[1].description}}</p>
+              <p class="text-muted">{{subProduct[1].price}}</p>
+              <div ng-show="ctrl.loggedIn">
+                <button type="button" ng-click="ctrl.onEditMode(subProduct[1])" class="btn btn-default btn-sm">EDIT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-format col-md-4" ng-if="subProduct[2]">
+        <div class="thumbnail">
+          <img src="{{subProduct[2].photo}}">
+          <div ng-if="subProduct[2].editMode">
+            <div class="caption panel-body">
+              <edit-sub-product id="subProduct[2]" edit-off-fn="ctrl.offEditMode"></edit-sub-product>
+            </div>
+          </div>
+          <div ng-if="subProduct[2].editMode == false">
+            <div class="caption panel-body">
+              <h3>{{subProduct[2].name}}</h2>
+              <p class="text-muted">{{subProduct[2].description}}</p>
+              <p class="text-muted">{{subProduct[2].price}}</p>
+              <div ng-show="ctrl.loggedIn">
+                <button type="button" ng-click="ctrl.onEditMode(subProduct[2])" class="btn btn-default btn-sm">EDIT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>

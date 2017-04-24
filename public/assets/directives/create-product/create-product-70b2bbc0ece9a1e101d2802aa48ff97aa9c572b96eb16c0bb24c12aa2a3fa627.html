@@ -1,0 +1,34 @@
+<br><br><br>
+<form name="form" ng-submit="ctrl.createProduct()">
+  <div class="form-group half">
+	  <label for="name" class="control-label">Name:</label>
+	  <input required="required" ng-model="ctrl.name" class="form-control" name="name" placeholder="Product name" ng-model-options="{ updateOn: 'blur'}">
+    <div class="form-errors" ng-messages="form.name.$error" ng-if="form.name.$touched">
+      <div ng-message="required">We need an item name!</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <label class="control-label" for="description">Description</label>
+		<textarea ng-model="ctrl.description" class="form-control" name="description"
+              required="required" ng-minlength="47" ng-maxlength="89" rows="3"
+              placeholder="Write a product desciption" ng-model-options="{ updateOn: 'blur'}"></textarea>
+    <div class="form-errors" ng-messages="form.description.$error" ng-if="form.description.$touched">
+      <div ng-message="required">We need a product description!</div>
+      <div ng-message="minlength">Please add some more details!</div>
+      <div ng-message="maxlength">Too much text! Make details more compact!</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input name="picture" required="required" type="file" ng-model="ctrl.picture.image" accept="image/*" base-sixty-four-input>
+    <div class="form-errors" ng-messages="form.picture.$error">
+      <div class="form-notes" ng-message="required">(product picture is required)</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button ng-click="ctrl.cleanForm(form)" class="btn btn-primary" name="submit" type="submit">Create Product</button>
+  </div>
+
+</form>

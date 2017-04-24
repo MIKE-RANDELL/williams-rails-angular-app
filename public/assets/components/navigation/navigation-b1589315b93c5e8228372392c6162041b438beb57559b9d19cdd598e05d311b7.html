@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Williams Soils & Sod <br> 561-967-1591</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="active"><a ui-sref="home">About Us<span class="sr-only">(current)</span></a></li>
+        <li><a ui-sref="products">Services We Provide</a></li>
+        <li><a ui-sref="estimates">Setup Estimate</a></li>
+        <li><a ui-sref="gallery">Project Gallery</a></li>
+        <li><a ui-sref="reviews">Our Reviews</a></li>
+        <li><a ui-sref="tweets">Tweets</a></li>
+        <li><a ui-sref="login">Login</a></li>
+
+        <!--
+        <li><a ui-sref="home.products">Services We Provide</a></li>
+        <li><a ui-sref="home.estimates">Setup Estimate</a></li>
+        <li><a ui-sref="home.gallery">Project Gallery</a></li>
+        <li><a ui-sref="home.reviews">Our Reviews</a></li>
+        -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+$(".nav a").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+});
+</script>

@@ -1,0 +1,34 @@
+<h1 class="text-center">Estimate Book</h1>
+<form class="form-padding">
+  <div class="row">
+    <div class="form-group col-xs-4 pull-left" ng-click="ctrl.searchOn()">
+      <input class="form-control" type="text" ng-model="ctrl.searchQuery" placeholder="Filter by detail.."></input>
+    </div>
+    <div class="form-group col-xs-4 pull-right" ng-click="ctrl.selectOn()">
+      <select class="form-control" ng-model="ctrl.selectedCity">
+        <option value="All" selected hidden>Filter by city..</option>
+        <option value="All">All cities</option>
+        <option value="Wellington">Wellington</option>
+        <option value="Lake worth">Lake Worth</option>
+        <option value="West Palm Beach">West Palm Beach</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Boca">Boca</option>
+      </select>
+    </div>
+  </div>
+</form>
+
+<div ng-if="ctrl.selectActive">
+  <div ng-if="(ctrl.selectedCity === 'All')" ng-repeat="estimate in ctrl.estimates track by $index">
+    <estimate id="estimate"></estimate>
+  </div>
+  <div ng-if="(ctrl.selectedCity != 'All')" ng-repeat="estimate in ctrl.estimates | estimatesCityFilter: ctrl.selectedCity track by $index">
+    <estimate id="estimate"></estimate>
+  </div>
+</div>
+
+<div ng-if="ctrl.searchActive">
+  <div ng-repeat="estimate in ctrl.estimates | filter:ctrl.searchQuery track by $index">
+    <estimate id="estimate"></estimate>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<br><br><br>
+<form name="form" ng-submit="ctrl.createSubProduct()">
+  <div class="form-group half">
+	  <label for="name" class="control-label">Name:</label>
+	  <input required="required" ng-maxlength="20" ng-model="ctrl.name" class="form-control" name="name" placeholder="Sub Product name">
+    <div class="form-errors" ng-messages="form.name.$error" ng-if="form.name.$touched">
+      <div ng-message="required">We need an item name!</div>
+      <div ng-message="maxlength">Too much text! Make name more compact!</div>
+    </div>
+  </div>
+  <div class="form-group">
+	  <label class="control-label" for="description">Description</label>
+		<textarea required="required" ng-model="ctrl.description" class="form-control" name="description"
+              ng-maxlength="38" rows="2"  placeholder="Write a sub product desciption"></textarea>
+    <div class="form-errors" ng-messages="form.description.$error" ng-if="form.description.$touched">
+      <div ng-message="required">We need a product description!</div>
+      <div ng-message="maxlength">Too much text! Make details more compact!</div>
+    </div>
+  </div>
+  <div class="form-group half">
+    <label for="price" class="control-label">Price:</label> <!--step="0.01" ng-pattern="/^[^\.]*$/"-->
+    <input required="required" type="text"  ng-model="ctrl.price" class="form-control" name="price" placeholder="Price">
+    <div class="form-errors" ng-messages="form.price.$error" ng-if="form.price.$touched">
+      <div ng-message="required">We need a price!</div>
+      <!--<div ng-message="pattern">Price in dollar only format!</div> --> <!-- don't need pattern, can include multiple prices, bag/pallet/half-pallet -->
+    </div>
+  </div>
+  <div class="form-group">
+    <input name="picture" required="required" type="file" ng-model="ctrl.picture.image" accept="image/*" base-sixty-four-input>
+    <div class="form-errors" ng-messages="form.picture.$error">
+      <div class="form-notes" ng-message="required">(sub-product picture is required)</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button ng-click="ctrl.cleanForm(form)" class="btn btn-primary" name="submit" type="submit">Create Sub-Product</button>
+  </div>
+</form>

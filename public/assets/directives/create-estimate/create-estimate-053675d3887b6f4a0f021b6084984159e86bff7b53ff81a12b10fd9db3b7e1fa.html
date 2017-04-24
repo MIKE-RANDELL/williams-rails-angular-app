@@ -1,0 +1,69 @@
+<div class="alert alert-success" ng-if="form.$submitted">
+  <strong>Success!</strong> You are scheduled for an estimate. We will be in touch soon!
+</div>
+<br>
+<!--<h1>Fill out this form to set up an estimate!</h1>-->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Fill out this form to set up an estimate!
+        <br><small class="text-info">Provide us with some details and we can schedule your estimate ASAP</small>
+      </h1>
+		</div>
+	</div>
+  <form class="form-padding" ng-submit="ctrl.createEstimate()" name="form">
+    <div class="form-group">
+  		<label class="control-label">Full Name</label>
+  		<input type="text" name="name" required="required" class="form-control" ng-model="ctrl.name" placeholder="Full Name">
+      <div class="form-errors" ng-messages="form.name.$error" ng-if="form.name.$touched">
+        <div ng-message="required">Your name is required!</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Phone Number</label>
+      <input type="text" name="phone" required="required" ng-minlength="10" ng-maxlength="10" class="form-control" ng-model="ctrl.phone" placeholder="Phone Number">
+      <div class="form-errors" ng-messages="form.phone.$error" ng-if="form.phone.$touched">
+        <div ng-message="required">A valid phone number is required!</div>
+        <div ng-message="minlength">Please include your 10 digit phone number including area code!</div>
+        <div ng-message="maxlength">Please include your 10 digit phone number including area code!</div>
+      </div>
+    </div>
+
+  	<div class="form-group">
+  		<label class="control-label">Street Address</label>
+  		<input type="text" name="street_address" required="required" class="form-control" ng-model="ctrl.street_address" placeholder="Street address">
+      <div class="form-errors" ng-messages="form.street_address.$error" ng-if="form.street_address.$touched">
+        <div ng-message="required">Your street address is required!</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Choose a City</label>
+      <select name="city" required="required" class="form-control" ng-model="ctrl.city">
+        <option value="Wellington">Wellington</option>
+        <option value="Lake worth">Lake Worth</option>
+        <option value="West Palm Beach">West Palm Beach</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Boca">Boca</option>
+      </select>
+      <div class="form-errors" ng-messages="form.city.$error" ng-if="form.city.$touched">
+        <div ng-message="required">Please choose a city!</div>
+      </div>
+    </div>
+
+  	<div class="form-group">
+  		<label class="control-label">Zip Code</label>
+  		<input type="text" name="zipcode" required="required" class="form-control" ng-model="ctrl.zipcode" placeholder="#####">
+      <div class="form-errors" ng-messages="form.zipcode.$error" ng-if="form.zipcode.$touched">
+        <div ng-message="required">Include your zipcode please!</div>
+      </div>
+  	</div>
+
+    <label class="control-label">Estimate Details</label>
+    <textarea rows="3" class="form-control" ng-model="ctrl.details" placeholder="Enter the details for your estimate here.."></textarea>
+    <br>
+
+  	<button type="submit" ng-click="ctrl.cleanForm(form)" class="btn btn-primary">Setup Estimate</button>
+  </form>
+</div>
