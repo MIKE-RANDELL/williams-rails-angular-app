@@ -197,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  activesupport
   angular-rails-templates
   bower-rails
   byebug

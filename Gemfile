@@ -39,6 +39,8 @@ gem 'devise_token_auth'
 
 gem 'font-awesome-sass'
 
+gem 'activesupport'
+
 #gem 'mini_magick'
 
 gem 'paperclip'
