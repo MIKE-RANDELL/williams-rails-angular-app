@@ -41,6 +41,8 @@ gem 'font-awesome-sass'
 
 gem 'activesupport'
 
+gem 'pry'
+
 #gem 'mini_magick'
 
 gem 'paperclip'
