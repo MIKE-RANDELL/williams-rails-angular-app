@@ -73,9 +73,9 @@
             controller: 'TweetsController as vm',
             templateUrl: 'tweets/tweets.html',
             resolve: {
-              auth: ['$auth', function($auth) {
-                return $auth.validateUser();
-              }],
+              //auth: ['$auth', function($auth) { <!-- REMOVAL TO SHOW AUTO ADMIN FUNCTIONALTY -->
+              //  return $auth.validateUser();
+              //}],
               tweetsSet: function(TweetsService){
                 return TweetsService.getTweets().then(function(response){return response})
               }

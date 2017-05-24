@@ -5,7 +5,8 @@
   function EstimateController(){
     var ctrl = this;
     this.$onInit = () => {
-      ctrl.estimate = this.id
+      //ctrl.estimate = this.id <!-- REMOVAL TO SHOW AUTO ADMIN FUNCTIONALTY -->
+      ctrl.estimate = true
     }
   }
 
