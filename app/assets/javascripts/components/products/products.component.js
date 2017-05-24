@@ -6,7 +6,8 @@
     var ctrl = this;
 
     this.$onInit = () => {
-      ctrl.loggedIn = this.id
+      //ctrl.loggedIn = this.id
+      ctrl.loggedIn = true
     }
 
     this.getProductsData = getProductsData;

@@ -24,8 +24,9 @@
 
 						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[0].highlight}">
 							<form ng-submit="ctrl.highlightProductSetter(product[0])">
-								<input type="text" ng-model="product[0].start_date"></input>
-								<input type="text" ng-model="product[0].end_date"></input>
+								<h4 style="color:red;">Add Sale Dates</h4>
+								<input type="text" ng-model="product[0].start_date" placeholder="beginning sale date"></input>
+								<input type="text" ng-model="product[0].end_date" placeholder="ending sale date"></input>
 								<input type="submit"></input>
 							</form>
 						</div>
@@ -48,8 +49,9 @@
 
 						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[1].highlight}">
 							<form ng-submit="ctrl.highlightProductSetter(product[1])">
-								<input type="text" ng-model="product[1].start_date"></input>
-								<input type="text" ng-model="product[1].end_date"></input>
+								<h4 style="color:red;">Add Sale Dates</h4>
+								<input type="text" ng-model="product[1].start_date" placeholder="beginning sale date"></input>
+								<input type="text" ng-model="product[1].end_date" placeholder="ending sale date"></input>
 								<input type="submit"></input>
 							</form>
 						</div>
@@ -72,8 +74,9 @@
 
 						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[2].highlight}">
 							<form ng-submit="ctrl.highlightProductSetter(product[2])">
-								<input type="text" ng-model="product[2].start_date"></input>
-								<input type="text" ng-model="product[2].end_date"></input>
+								<h4 style="color:red;">Add Sale Dates</h4>
+								<input type="text" ng-model="product[2].start_date" placeholder="beginning sale date"></input>
+								<input type="text" ng-model="product[2].end_date" placeholder="ending sale date"></input>
 								<input type="submit"></input>
 							</form>
 						</div>
