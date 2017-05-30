@@ -1,0 +1,98 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Services
+        <br><small class="text-info">Here are some of the products & services we offer!</small>
+      </h1>
+		</div>
+	</div>
+</div>
+<br>
+<div class="container">
+  <div ng-repeat="product in ctrl.products | chunkBy: 3 track by $index">
+	  <div class="row">
+	    <div class="card-format col-md-4" ng-if="product[0]">
+				<div class="thumbnail">
+					<img src="{{product[0].photo}}">
+					<div class="caption">
+						<h2>{{product[0].name}}</h2>
+						<div ng-show="product[0].highlight" ng-class="{'highlighted': product[0].highlight}">
+							<h5>Big sale!!!</h5>
+						</div>
+			  		<p class="flex-text">{{product[0].description}}</p>
+			  		<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[0].id)">View products!</a></p>
+
+						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[0].highlight}">
+							<form ng-submit="ctrl.highlightProductSetter(product[0])">
+								<h4 style="color:red;">Add Sale Dates</h4>
+								<input type="text" ng-model="product[0].start_date" placeholder="beginning sale date"></input>
+								<input type="text" ng-model="product[0].end_date" placeholder="ending sale date"></input>
+								<input type="submit"></input>
+							</form>
+						</div>
+            <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[0].id, product[0].name)" ng-href="https://twitter.com/intent/tweet?text={{product[0].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
+              <i class="fa fa-twitter tweet-float"></i></i>
+            </a>
+					</div>
+				</div>
+			</div>
+			<div class="card-format col-md-4" ng-if="product[1]">
+				<div class="thumbnail">
+					<img src="{{product[1].photo}}">
+					<div class="caption">
+						<h2>{{product[1].name}}</h2>
+						<div ng-show="product[1].highlight" ng-class="{'highlighted': product[1].highlight}">
+							<h5>Big sale!!!</h5>
+						</div>
+						<p class="flex-text">{{product[1].description}}</p>
+						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[1].id)">View Products!</a></p>
+
+						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[1].highlight}">
+							<form ng-submit="ctrl.highlightProductSetter(product[1])">
+								<h4 style="color:red;">Add Sale Dates</h4>
+								<input type="text" ng-model="product[1].start_date" placeholder="beginning sale date"></input>
+								<input type="text" ng-model="product[1].end_date" placeholder="ending sale date"></input>
+								<input type="submit"></input>
+							</form>
+						</div>
+            <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[1].id, product[1].name)" ng-href="https://twitter.com/intent/tweet?text={{product[1].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
+              <i class="fa fa-twitter tweet-float"></i></i>
+            </a>
+					</div>
+				</div>
+			</div>
+			<div class="card-format col-md-4" ng-if="product[2]">
+				<div class="thumbnail">
+					<img src="{{product[2].photo}}">
+					<div class="caption">
+						<h2>{{product[2].name}}</h2>
+						<div ng-show="product[2].highlight" ng-class="{'highlighted': product[2].highlight}">
+							<h5>Big sale!!!</h5>
+						</div>
+						<p class="flex-text">{{product[2].description}}</p>
+						<p><a class="btn btn-primary" href="" ng-click="ctrl.goToSelected(product[2].id)">View Products!</a></p>
+
+						<div ng-show="ctrl.loggedIn" ng-class="{'highlighted': product[2].highlight}">
+							<form ng-submit="ctrl.highlightProductSetter(product[2])">
+								<h4 style="color:red;">Add Sale Dates</h4>
+								<input type="text" ng-model="product[2].start_date" placeholder="beginning sale date"></input>
+								<input type="text" ng-model="product[2].end_date" placeholder="ending sale date"></input>
+								<input type="submit"></input>
+							</form>
+						</div>
+            <a class="twitter-share-button" ng-click="ctrl.logProductTweet(product[2].id, product[2].name)" ng-href="https://twitter.com/intent/tweet?text={{product[2].name}}, best from Williams Soils and Sod! Check them out at williamssoilsandsod.com">
+              <i class="fa fa-twitter tweet-float"></i></i>
+            </a>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+
+
+
+
+
+
+<style type="text/css">
