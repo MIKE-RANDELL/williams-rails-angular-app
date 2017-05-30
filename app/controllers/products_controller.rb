@@ -1,4 +1,5 @@
 require 'pry'
+require 'aws-sdk'
 class ProductsController < ApplicationController
   respond_to :json
 
@@ -20,9 +21,15 @@ class ProductsController < ApplicationController
   end
 
   def create
+    #binding.pry
     @product = Product.new(product_params)
+    supload
+
     @product.photo = decode_base64
+
     @product.save
+    #binding.pry
+
     render json: @product
   end
 
@@ -30,6 +37,18 @@ class ProductsController < ApplicationController
     decoded_data = Base64.decode64(params[:product][:picture][:image][:base64])
     data = StringIO.new(decoded_data)
     data
+  end
+
+  def supload
+    s3 = Aws::S3::Object.new(:bucket_name => ENV['S3_BUCKET_NAME'],:key=> ENV['AWS_ACCESS_KEY_ID'],:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'])
+    #bucket = s3.buckets['williamsrailsangular']
+    data = Base64.decode64(params[:product][:picture][:image][:base64].to_s)
+    #type = params[:contentType].to_s
+    #extension = params[:extension].to_s
+    name = ('a'..'z').to_a.shuffle[0..7].join #+ ".#{extension}"
+    #obj = s3.objects.create(name,data,{acl:"public_read"})
+    #url = s3.public_url().to_s
+    #render text: url
   end
 
   def show
@@ -51,6 +70,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:id, :name, :description, :start_date, :end_date)
+    params.require(:product).permit(:id, :name, :picture, :description, :start_date, :end_date)
   end
 end

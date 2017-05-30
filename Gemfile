@@ -51,6 +51,8 @@ gem 's3_direct_upload'
 
 gem 'paperclip'
 
+gem 'figaro'
+
 
 
 group :development, :test do
@@ -59,7 +61,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'pry'
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
