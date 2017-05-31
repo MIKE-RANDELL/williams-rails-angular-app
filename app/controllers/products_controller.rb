@@ -21,14 +21,10 @@ class ProductsController < ApplicationController
   end
 
   def create
-    #binding.pry
     @product = Product.new(product_params)
     supload
-
     @product.photo = decode_base64
-
     @product.save
-    #binding.pry
 
     render json: @product
   end

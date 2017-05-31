@@ -71,6 +71,9 @@
     }
 
     function getAllSubProductsData(){
+      for(var i = 0; i < this.data.length; i++) {
+        this.data[i].photo = "https://" + this.data[i].photo.slice(2).split('?')[0]
+      }
       return this.data;
     }
   }
